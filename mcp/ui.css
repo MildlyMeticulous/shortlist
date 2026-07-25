@@ -68,6 +68,19 @@ button.copy {
 button.copy:hover { color: var(--fg); border-color: var(--muted); }
 @media (hover: none) { button.copy { opacity: 1; } }
 .fallback { margin-left: auto; font-size: 11px; color: var(--muted); user-select: all; white-space: pre; }
+
+.tabs { display: flex; gap: 4px; margin-bottom: 14px; }
+.tab { flex: 1; font: inherit; font-size: 12px; padding: 5px 8px; border: 1px solid var(--line); background: none; color: var(--muted); border-radius: 6px; cursor: pointer; }
+.tab:hover { color: var(--fg); }
+.tab[aria-pressed="true"] { background: var(--chip); color: var(--fg); font-weight: 600; }
+.filter { font: inherit; font-size: 12px; padding: 4px 10px; border: 1px solid var(--line); background: none; color: var(--muted); border-radius: 20px; cursor: pointer; }
+.filter:hover { color: var(--fg); }
+.filter[aria-pressed="true"] { background: var(--chip); color: var(--fg); }
+.badge { margin-left: auto; font-size: 11px; padding: 1px 8px; border-radius: 20px; border: 1px solid var(--line); color: var(--muted); }
+.badge.on { color: var(--accent); border-color: var(--accent); }
+.badge.new { margin-left: 0; color: var(--fg); }
+.badge + .badge { margin-left: 6px; }
+.item .badge.on + .badge, .top .badge.new + .badge.on { margin-left: auto; }
 .empty { display: grid; gap: 3px; color: var(--muted); padding: 40px 4px; justify-items: start; }
 .empty strong { color: var(--fg); font-size: 15px; }
 .note { color: var(--muted); font-size: 12px; margin: 14px 0 0; }

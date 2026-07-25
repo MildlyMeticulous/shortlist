@@ -4,3 +4,5 @@ mcp/preview.html
 
 # validator resume cache, not shipped
 data/.validate-cache.json
+mcp/preview-fresh.html
+mcp/preview-check.html

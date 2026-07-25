@@ -7,8 +7,54 @@ let busy = false;
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const stars = n => (n >= 1000 ? (n / 1000).toFixed(1) + "k" : String(n));
 
+const NEW_FOR_DAYS = 7;
+const installedHere = () => new Set((state.installed ?? [])
+  .filter(p => p.marketplace === (state.marketplace ?? "claude-community"))
+  .map(p => p.name));
+const isNew = at => at && Date.now() - Date.parse(at) < NEW_FOR_DAYS * 864e5;
+const when = at => {
+  if (!at) return "";
+  const days = Math.floor((Date.now() - Date.parse(at)) / 864e5);
+  return days < 1 ? "today" : days === 1 ? "yesterday" : `${days} days ago`;
+};
+
+function renderInstalled() {
+  const rows = state.installed ?? [];
+  const shown = state.installedFilter === "enabled" ? rows.filter(p => p.enabled)
+    : state.installedFilter === "disabled" ? rows.filter(p => !p.enabled)
+    : rows;
+
+  if (!rows.length) {
+    return `<div class="empty"><strong>Nothing installed</strong>Anything you install from Browse shows up here.</div>`;
+  }
+  const items = shown.map(p => `
+    <article class="item">
+      <div class="top">
+        <h3 class="name">${esc(p.name)}</h3>
+        ${isNew(p.installedAt) ? `<span class="badge new">new</span>` : ""}
+        <span class="badge ${p.enabled ? "on" : "off"}">${p.enabled ? "enabled" : "disabled"}</span>
+      </div>
+      <div class="meta">
+        <span class="chip">${esc(p.marketplace)}</span>
+        ${p.version ? `<span class="chip">v${esc(p.version)}</span>` : ""}
+        ${p.scope ? `<span class="chip">${esc(p.scope)}</span>` : ""}
+        <span class="stars">${esc(when(p.installedAt))}</span>
+      </div>
+    </article>`).join("");
+
+  const counts = { all: rows.length, enabled: rows.filter(p => p.enabled).length };
+  counts.disabled = counts.all - counts.enabled;
+  const filters = ["all", "enabled", "disabled"].map(f =>
+    `<button class="filter" data-filter="${f}" aria-pressed="${(state.installedFilter ?? "all") === f}">${f} ${counts[f]}</button>`).join("");
+
+  return `<div class="bar">${filters}</div>
+    ${shown.length ? `<div class="grid">${items}</div>` : `<div class="empty"><strong>None ${esc(state.installedFilter)}</strong></div>`}
+    <p class="note">Read from ~/.claude/plugins. Enable and disable with /plugin.</p>`;
+}
+
 function render() {
   const { plugins, categories, total, category, search } = state;
+  const have = installedHere();
 
   const cats = categories.map(c =>
     `<button class="cat" data-cat="${esc(c.name)}" aria-pressed="${c.name === category}"
@@ -22,7 +68,9 @@ function render() {
         <h3 class="name">${esc(p.name)}</h3>
         ${p.fails ? `<span class="fails" title="${esc(p.fails)}">won't load</span>` : ""}
         <span class="stars" title="GitHub stars. Most of the catalogue has very few.">${stars(p.stars)} ★</span>
-        <button class="copy" data-install="${esc(p.name)}">install</button>
+        ${have.has(p.name)
+          ? `<span class="badge on">installed</span>`
+          : `<button class="copy" data-install="${esc(p.name)}">install</button>`}
       </div>
       <p class="desc">${esc(p.description.slice(0, 170))}${p.description.length > 170 ? "…" : ""}</p>
       <div class="meta">
@@ -32,14 +80,23 @@ function render() {
       </div>
     </article>`).join("");
 
+  const browsing = state.view !== "installed";
+  const tabs = `
+    <div class="tabs">
+      <button class="tab" data-view="browse" aria-pressed="${browsing}">Browse</button>
+      <button class="tab" data-view="installed" aria-pressed="${!browsing}">Installed ${(state.installed ?? []).length || ""}</button>
+    </div>`;
+
   root.innerHTML = `
     <aside>
+      ${tabs}
       <h2>Categories</h2>
       <button class="cat all" data-cat="" aria-pressed="${!category}"
               aria-label="All categories, ${state.allCount ?? ""} plugins"><span>All</span><span>${state.allCount ?? ""}</span></button>
       ${cats}
     </aside>
     <main>
+      ${browsing ? `
       <div class="bar">
         <input type="search" placeholder="Search ${state.allCount ?? ""} plugins" value="${esc(search)}" ${busy ? "disabled" : ""}>
         <span class="count">${total}${plugins.length < total ? ` · ${plugins.length} shown` : ""}</span>
@@ -47,7 +104,8 @@ function render() {
       ${plugins.length
         ? `<div class="grid">${items}</div>`
         : `<div class="empty"><strong>No matches</strong>Try fewer words, or pick a category.</div>`}
-      <p class="note">Filtered from anthropics/claude-plugins-community.</p>
+      <p class="note">Filtered from anthropics/claude-plugins-community.</p>`
+      : renderInstalled()}
     </main>`;
 }
 
@@ -79,12 +137,19 @@ function absorb(result) {
   if (data.marketplace) state.marketplace = data.marketplace;
   if (data.marketplaceSource) state.marketplaceSource = data.marketplaceSource;
   if (data.marketplaceReady !== undefined) state.marketplaceReady = data.marketplaceReady;
+  if (data.installed) state.installed = data.installed;
   if (!state.category && !state.search) state.allCount = state.total;
 }
 
 root.addEventListener("click", e => {
+  const tab = e.target.closest("[data-view]");
+  if (tab) { state.view = tab.dataset.view; return void render(); }
+
+  const filter = e.target.closest("[data-filter]");
+  if (filter) { state.installedFilter = filter.dataset.filter; return void render(); }
+
   const cat = e.target.closest("[data-cat]");
-  if (cat) return void requery({ category: cat.dataset.cat });
+  if (cat) { state.view = "browse"; return void requery({ category: cat.dataset.cat }); }
 
   const link = e.target.closest("[data-repo]");
   if (link) {

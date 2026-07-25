@@ -33,6 +33,28 @@ const marketplaceReady = () => {
   }
 };
 
+const readJson = (...parts) => {
+  try { return JSON.parse(fs.readFileSync(path.join(os.homedir(), ".claude", ...parts), "utf8")); }
+  catch { return null; }
+};
+
+const installed = () => {
+  const state = readJson("plugins", "installed_plugins.json");
+  if (!state?.plugins) return [];
+  const enabled = readJson("settings.json")?.enabledPlugins ?? {};
+  return Object.entries(state.plugins).map(([id, versions]) => {
+    const latest = versions[versions.length - 1] ?? {};
+    const [name, marketplace] = id.split("@");
+    return {
+      id, name, marketplace,
+      version: latest.version ?? null,
+      scope: latest.scope ?? null,
+      installedAt: latest.installedAt ?? null,
+      enabled: enabled[id] === true,
+    };
+  }).sort((a, b) => a.name.localeCompare(b.name));
+};
+
 const categories = () => {
   const t = {};
   for (const p of PLUGINS) for (const c of p.categories) t[c] = (t[c] || 0) + 1;
@@ -122,6 +144,7 @@ function handle(msg) {
           marketplace: MARKETPLACE,
           marketplaceSource: MARKETPLACE_SOURCE,
           marketplaceReady: marketplaceReady(),
+          installed: installed(),
         },
         _meta: { ui: { resourceUri: RESOURCE_URI } },
       });

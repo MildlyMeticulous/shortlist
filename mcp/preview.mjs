@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -21,10 +22,24 @@ for (const p of catalogue.plugins) for (const c of p.categories) tally[c] = (tal
 const categories = Object.entries(tally).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count }));
 const plugins = [...catalogue.plugins].sort((a, b) => b.stars - a.stars).slice(0, 40);
 
+const readJson = (...parts) => {
+  try { return JSON.parse(fs.readFileSync(path.join(os.homedir(), ".claude", ...parts), "utf8")); }
+  catch { return null; }
+};
+
+const installedState = readJson("plugins", "installed_plugins.json");
+const enabledState = readJson("settings.json")?.enabledPlugins ?? {};
+const installed = Object.entries(installedState?.plugins ?? {}).map(([id, versions]) => {
+  const latest = versions[versions.length - 1] ?? {};
+  const [name, marketplace] = id.split("@");
+  return { id, name, marketplace, version: latest.version, scope: latest.scope, installedAt: latest.installedAt, enabled: enabledState[id] === true };
+});
+
 const marketplace = {
   marketplace: "claude-community",
   marketplaceSource: "anthropics/claude-plugins-community",
   marketplaceReady: process.argv.includes("--marketplace-ready"),
+  installed,
 };
 
 const stub = `
