@@ -86,6 +86,15 @@ nav { display: grid; gap: 2px; margin-bottom: 18px; }
 .badge { margin-left: auto; font-size: 11px; padding: 1px 8px; border-radius: 20px; border: 1px solid var(--line); color: var(--muted); }
 .badge.on { color: var(--accent); border-color: var(--accent); }
 .badge.new { margin-left: 0; color: var(--fg); }
+.badge.pending { margin-left: auto; color: var(--muted); }
+
+.switch { margin-left: auto; position: relative; flex: 0 0 auto; width: 34px; height: 19px; padding: 0; border: 1px solid var(--line); border-radius: 20px; background: var(--chip); cursor: pointer; transition: background .15s ease, border-color .15s ease; }
+.switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 13px; height: 13px; border-radius: 50%; background: var(--muted); transition: transform .15s ease, background .15s ease; }
+.switch[aria-checked="true"] { background: var(--accent); border-color: var(--accent); }
+.switch[aria-checked="true"]::after { transform: translateX(15px); background: var(--card); }
+.switch:disabled { opacity: .5; cursor: default; }
+.switch[data-failed] { border-color: var(--accent); }
+.badge.pending + .switch, .fallback + .switch { margin-left: 8px; }
 .badge + .badge { margin-left: 6px; }
 .item .badge.on + .badge, .top .badge.new + .badge.on { margin-left: auto; }
 .empty { display: grid; gap: 3px; color: var(--muted); padding: 40px 4px; justify-items: start; }
@@ -205,12 +214,18 @@ function renderInstalled() {
   if (!rows.length) {
     return `<div class="empty"><strong>Nothing installed</strong>Anything you install from Browse shows up here.</div>`;
   }
+  const pending = state.pending ?? {};
+  const failed = state.failed ?? {};
   const items = shown.map(p => `
     <article class="item">
       <div class="top">
         <h3 class="name">${esc(p.name)}</h3>
         ${isNew(p.installedAt) ? `<span class="badge new">new</span>` : ""}
-        <span class="badge ${p.enabled ? "on" : "off"}">${p.enabled ? "enabled" : "disabled"}</span>
+        ${failed[p.id]
+          ? `<code class="fallback" title="the host would not run it, paste this instead">${esc(failed[p.id])}</code>`
+          : pending[p.id] ? `<span class="badge pending">restart to apply</span>` : ""}
+        <button class="switch" role="switch" data-toggle="${esc(p.id)}"
+                aria-checked="${p.enabled}" aria-label="${p.enabled ? "Disable" : "Enable"} ${esc(p.name)}"></button>
       </div>
       <div class="meta">
         <span class="chip">${esc(p.marketplace)}</span>
@@ -353,9 +368,34 @@ root.addEventListener("click", e => {
     return void app.openLink({ url: `https://github.com/${link.dataset.repo}` }).catch(() => {});
   }
 
+  const toggle = e.target.closest("[data-toggle]");
+  if (toggle) return void setEnabled(toggle);
+
   const button = e.target.closest("[data-install]");
   if (button) return void install(button);
 });
+
+async function setEnabled(toggle) {
+  const id = toggle.dataset.toggle;
+  const row = (state.installed ?? []).find(p => p.id === id);
+  if (!row) return;
+
+  const wanted = !row.enabled;
+  const failed = { ...(state.failed ?? {}) };
+  delete failed[id];
+  toggle.disabled = true;
+  try {
+    const text = `/plugin ${wanted ? "enable" : "disable"} ${id}`;
+    const res = await app.sendMessage({ role: "user", content: [{ type: "text", text }] });
+    if (res?.isError) throw new Error("host rejected the message");
+    row.enabled = wanted;
+    state.pending = { ...(state.pending ?? {}), [id]: true };
+  } catch {
+    failed[id] = `/plugin ${wanted ? "enable" : "disable"} ${id}`;
+  }
+  state.failed = failed;
+  render();
+}
 
 async function install(button) {
   const name = button.dataset.install;

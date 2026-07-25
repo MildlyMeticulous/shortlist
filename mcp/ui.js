@@ -29,12 +29,18 @@ function renderInstalled() {
   if (!rows.length) {
     return `<div class="empty"><strong>Nothing installed</strong>Anything you install from Browse shows up here.</div>`;
   }
+  const pending = state.pending ?? {};
+  const failed = state.failed ?? {};
   const items = shown.map(p => `
     <article class="item">
       <div class="top">
         <h3 class="name">${esc(p.name)}</h3>
         ${isNew(p.installedAt) ? `<span class="badge new">new</span>` : ""}
-        <span class="badge ${p.enabled ? "on" : "off"}">${p.enabled ? "enabled" : "disabled"}</span>
+        ${failed[p.id]
+          ? `<code class="fallback" title="the host would not run it, paste this instead">${esc(failed[p.id])}</code>`
+          : pending[p.id] ? `<span class="badge pending">restart to apply</span>` : ""}
+        <button class="switch" role="switch" data-toggle="${esc(p.id)}"
+                aria-checked="${p.enabled}" aria-label="${p.enabled ? "Disable" : "Enable"} ${esc(p.name)}"></button>
       </div>
       <div class="meta">
         <span class="chip">${esc(p.marketplace)}</span>
@@ -177,9 +183,34 @@ root.addEventListener("click", e => {
     return void app.openLink({ url: `https://github.com/${link.dataset.repo}` }).catch(() => {});
   }
 
+  const toggle = e.target.closest("[data-toggle]");
+  if (toggle) return void setEnabled(toggle);
+
   const button = e.target.closest("[data-install]");
   if (button) return void install(button);
 });
+
+async function setEnabled(toggle) {
+  const id = toggle.dataset.toggle;
+  const row = (state.installed ?? []).find(p => p.id === id);
+  if (!row) return;
+
+  const wanted = !row.enabled;
+  const failed = { ...(state.failed ?? {}) };
+  delete failed[id];
+  toggle.disabled = true;
+  try {
+    const text = `/plugin ${wanted ? "enable" : "disable"} ${id}`;
+    const res = await app.sendMessage({ role: "user", content: [{ type: "text", text }] });
+    if (res?.isError) throw new Error("host rejected the message");
+    row.enabled = wanted;
+    state.pending = { ...(state.pending ?? {}), [id]: true };
+  } catch {
+    failed[id] = `/plugin ${wanted ? "enable" : "disable"} ${id}`;
+  }
+  state.failed = failed;
+  render();
+}
 
 async function install(button) {
   const name = button.dataset.install;
