@@ -64,6 +64,42 @@ rules over each name and description, in `build/categories.mjs`.
 The vocabulary is closed on purpose. Free-text tags are why the upstream list cannot be
 browsed. `Utility` is the fallback where no rule matched, currently 17% of entries.
 
+## Does it actually load
+
+The gates above are facts about a repository, not about the plugin inside it. A plugin can
+have a licence, a recent commit and still not work. `build/validate.mjs` reads the tree at
+the exact commit the marketplace pins and checks the things that make a plugin fail
+silently:
+
+```
+shortlist broken              every entry that would not load, and why
+shortlist show <name>         what a plugin provides, and any problems
+shortlist find <words> --working    hide entries that fail the checks
+```
+
+Of 2,269 upstream entries, 1,919 load cleanly and 350 do not. The most common failures:
+
+```
+  162  no manifest at the pinned path
+  125  no skills, commands, agents, hooks, servers or binaries
+   85  a SKILL.md with no frontmatter
+   16  the marketplace path misses the plugin directory
+```
+
+Skill frontmatter is the one that hurts. A `SKILL.md` with no `description` is never
+auto-invoked, so the plugin installs without error and then does nothing.
+
+Four of these checks were wrong when first written, and each one flagged working plugins:
+an outdated hook-event list marked `expo` broken, CRLF files parsed as having no
+frontmatter at all, symlinked `SKILL.md` files read as their own link target, and
+`git-subdir` entries read as having no repository. Every code here was checked against the
+live repository before being trusted. If you add one, do the same.
+
+Nothing here executes third-party code. It is one git tree read per entry and then raw
+file reads, so it is safe to run over the whole catalogue. Starting the MCP servers to see
+whether they answer `initialize` would catch more, and would mean running 2,269 strangers'
+programs, so it is deliberately not done here.
+
 ## What this does not claim
 
 Star counts are popularity, not quality. The median entry in the catalogue has **1 star**
@@ -91,6 +127,7 @@ mcp/build-view.mjs           vendors the ext-apps bundle into app.html
 mcp/preview.mjs              renders the panel against a stub host, for development
 data/catalogue.json          the shipped snapshot
 data/catalogue-rejected.json every exclusion and why
+data/validation.json         per-entry load checks, from build/validate.mjs
 build/                       regenerates the snapshot
 ```
 

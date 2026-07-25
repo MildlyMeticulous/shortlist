@@ -10,41 +10,45 @@ const stars = n => (n >= 1000 ? (n / 1000).toFixed(1) + "k" : String(n));
 function render() {
   const { plugins, categories, total, category, search } = state;
 
+  // Without an explicit label the two spans are read as one run, "Agents561".
   const cats = categories.map(c =>
-    `<button class="cat" data-cat="${esc(c.name)}" aria-pressed="${c.name === category}">
+    `<button class="cat" data-cat="${esc(c.name)}" aria-pressed="${c.name === category}"
+             aria-label="${esc(c.name)}, ${c.count} plugins">
        <span>${esc(c.name)}</span><span>${c.count}</span>
      </button>`).join("");
 
   const items = plugins.map(p => `
-    <div class="item">
+    <article class="item">
       <div class="top">
-        <span class="name">${esc(p.name)}</span>
-        <span class="stars">${stars(p.stars)} ★</span>
-      </div>
-      <div class="desc">${esc(p.description.slice(0, 180))}${p.description.length > 180 ? "…" : ""}</div>
-      <div class="meta">
-        ${p.categories.map(c => `<span class="chip">${esc(c)}</span>`).join("")}
-        <a href="https://github.com/${esc(p.repo)}" data-repo="${esc(p.repo)}">${esc(p.repo)}</a>
-        <span class="chip">${esc(p.license)}</span>
+        <h3 class="name">${esc(p.name)}</h3>
+        ${p.fails ? `<span class="fails" title="${esc(p.fails)}">won't load</span>` : ""}
+        <span class="stars" title="GitHub stars. Most of the catalogue has very few.">${stars(p.stars)} ★</span>
         <button class="copy" data-install="${esc(p.name)}">copy install</button>
       </div>
-    </div>`).join("");
+      <p class="desc">${esc(p.description.slice(0, 170))}${p.description.length > 170 ? "…" : ""}</p>
+      <div class="meta">
+        ${p.categories.slice(0, 3).map(c => `<span class="chip">${esc(c)}</span>`).join("")}
+        <span class="chip">${esc(p.license)}</span>
+        <a href="https://github.com/${esc(p.repo)}" data-repo="${esc(p.repo)}">${esc(p.repo)}</a>
+      </div>
+    </article>`).join("");
 
   root.innerHTML = `
     <aside>
       <h2>Categories</h2>
-      <button class="cat" data-cat="" aria-pressed="${!category}"><span>All</span><span>${state.allCount ?? ""}</span></button>
+      <button class="cat all" data-cat="" aria-pressed="${!category}"
+              aria-label="All categories, ${state.allCount ?? ""} plugins"><span>All</span><span>${state.allCount ?? ""}</span></button>
       ${cats}
     </aside>
     <main>
       <div class="bar">
-        <input type="search" placeholder="Search plugins" value="${esc(search)}" ${busy ? "disabled" : ""}>
-        <span class="count">${total} match${total === 1 ? "" : "es"}${plugins.length < total ? `, showing ${plugins.length}` : ""}</span>
+        <input type="search" placeholder="Search ${state.allCount ?? ""} plugins" value="${esc(search)}" ${busy ? "disabled" : ""}>
+        <span class="count">${total}${plugins.length < total ? ` · ${plugins.length} shown` : ""}</span>
       </div>
-      ${plugins.length ? `<div class="grid">${items}</div>` : `<div class="empty">Nothing matched.</div>`}
-      <div class="note">Filtered from the community marketplace. Entries without a licence, archived
-      repositories and those untouched for 180 days are excluded. Stars are popularity, not quality;
-      most of the catalogue has very few.</div>
+      ${plugins.length
+        ? `<div class="grid">${items}</div>`
+        : `<div class="empty"><strong>No matches</strong>Try fewer words, or pick a category.</div>`}
+      <p class="note">Filtered from anthropics/claude-plugins-community.</p>
     </main>`;
 }
 

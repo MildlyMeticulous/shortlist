@@ -11,9 +11,10 @@ shortlist categories            every category and its size
 shortlist browse <category>     one category, most-starred first
 shortlist show <name>           one plugin in full, with the install command
 shortlist top [n]               the most-starred entries
+shortlist broken                entries that would not load, and why
 ```
 
-Useful flags: `--limit <n>`, `--min-stars <n>`, `--json`.
+Useful flags: `--limit <n>`, `--min-stars <n>`, `--working`, `--json`.
 
 How to answer:
 
@@ -24,6 +25,9 @@ How to answer:
 3. Show a few candidates with their star counts, not a single pick, and say plainly
    when the best match is weak.
 4. Use `shortlist show <name>` for the install command. Do not invent one.
+5. `show` also reports what the plugin provides and whether it passes the load checks.
+   If a candidate is marked as failing, say so before recommending it. `skill-no-description`
+   in particular means the plugin installs without complaint and then never activates.
 
 The catalogue is a filtered view of `anthropics/claude-plugins-community`. Entries
 without a licence, archived repositories and repositories untouched for 180 days are

@@ -16,6 +16,18 @@ try {
 }
 const ALL = catalogue.plugins;
 
+// Optional: written by build/validate.mjs. The catalogue still works without it.
+let CHECKS = {};
+let checkedOn = null;
+try {
+  const v = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "validation.json"), "utf8"));
+  checkedOn = v.built;
+  for (const r of v.results) CHECKS[r.name] = r;
+} catch { /* not built yet */ }
+
+const errorsFor = name => (CHECKS[name]?.problems ?? []).filter(p => p.level === "error");
+const loadsCleanly = name => !CHECKS[name] || errorsFor(name).length === 0;
+
 const HELP = `shortlist - browse a filtered Claude Code plugin catalogue
 
   shortlist categories              every category and how many plugins are in it
@@ -24,10 +36,12 @@ const HELP = `shortlist - browse a filtered Claude Code plugin catalogue
   shortlist show <name>             one plugin in full, with the install command
   shortlist top [n]                 the n most-starred plugins (default 20)
   shortlist random [n]              n plugins picked at random, for browsing
+  shortlist broken                  entries that would not load, and why
 
 Options
   --limit <n>    cap the number of rows (default 20)
   --min-stars <n>
+  --working      only entries that pass the load checks
   --json         machine-readable
 
 Built from ${catalogue.source}. ${catalogue.counts.kept} of ${catalogue.counts.upstream}
@@ -50,6 +64,7 @@ const bool = name => {
 };
 
 const asJson = bool("--json");
+const workingOnly = bool("--working");
 const limit = Number(flag("--limit", 20));
 const minStars = Number(flag("--min-stars", 0));
 const [cmd, ...rest] = argv;
@@ -58,16 +73,21 @@ const byStars = (a, b) => b.stars - a.stars || a.name.localeCompare(b.name);
 const star = n => (n >= 1000 ? (n / 1000).toFixed(1) + "k" : String(n));
 
 function emit(rows, note) {
-  const shown = rows.filter(p => p.stars >= minStars).slice(0, limit);
-  if (asJson) return console.log(JSON.stringify(shown, null, 1));
+  const eligible = rows.filter(p => p.stars >= minStars && (!workingOnly || loadsCleanly(p.name)));
+  const shown = eligible.slice(0, limit);
+  if (asJson) {
+    return console.log(JSON.stringify(shown.map(p => ({ ...p, checks: CHECKS[p.name] ?? null })), null, 1));
+  }
   if (!shown.length) return console.log("nothing matched.");
   for (const p of shown) {
-    console.log(`${star(p.stars).padStart(6)}  ${p.name}`);
+    const bad = errorsFor(p.name);
+    console.log(`${star(p.stars).padStart(6)}  ${p.name}${bad.length ? `  [would not load: ${bad[0].code}]` : ""}`);
     console.log(`        ${p.description.slice(0, 96)}`);
     console.log(`        ${p.categories.join(", ")}  ${p.repo}  ${p.license}  ${p.pushed}`);
   }
-  const total = rows.filter(p => p.stars >= minStars).length;
-  if (total > shown.length) console.log(`\n${shown.length} of ${total}. --limit ${total} for all.`);
+  if (eligible.length > shown.length) console.log(`\n${shown.length} of ${eligible.length}. --limit ${eligible.length} for all.`);
+  const hidden = rows.filter(p => p.stars >= minStars).length - eligible.length;
+  if (hidden > 0) console.log(`${hidden} hidden by --working.`);
   if (note) console.log(`\n${note}`);
 }
 
@@ -122,8 +142,32 @@ switch (cmd) {
     console.log(`  licence     ${p.license}`);
     console.log(`  last push   ${p.pushed}`);
     if (p.siblings) console.log(`  note        this repository publishes ${p.siblings} plugins`);
+    const check = CHECKS[p.name];
+    if (check) {
+      const caps = Object.entries(check.capabilities ?? {}).filter(([, v]) => v).map(([k, v]) => `${k} ${v}`);
+      console.log(`  provides    ${caps.length ? caps.join(", ") : "nothing detected"}`);
+      if (!check.problems.length) console.log(`  checks      pass (${checkedOn})`);
+      else {
+        console.log(`  checks      ${check.problems.length} problem(s), checked ${checkedOn}`);
+        for (const pr of check.problems) console.log(`              ${pr.level.padEnd(5)} ${pr.code}${pr.detail ? "  " + pr.detail : ""}`);
+      }
+    }
     console.log(`\ninstall\n  /plugin marketplace add anthropics/claude-plugins-community`);
     console.log(`  /plugin install ${p.name}@claude-community`);
+    break;
+  }
+  case "broken": {
+    if (!Object.keys(CHECKS).length) {
+      console.error("no data/validation.json. run: node build/validate.mjs <marketplace.json>");
+      process.exit(2);
+    }
+    const rows = ALL.filter(p => !loadsCleanly(p.name)).sort(byStars);
+    if (asJson) { console.log(JSON.stringify(rows.map(p => CHECKS[p.name]), null, 1)); break; }
+    for (const p of rows.slice(0, limit)) {
+      console.log(`${star(p.stars).padStart(6)}  ${p.name}  ${p.repo}`);
+      for (const pr of errorsFor(p.name)) console.log(`          ${pr.code}${pr.detail ? "  " + pr.detail : ""}`);
+    }
+    console.log(`\n${rows.length} of ${ALL.length} catalogued entries would not load, checked ${checkedOn}.`);
     break;
   }
   case "top": {

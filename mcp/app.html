@@ -9,9 +9,8 @@
   --accent: #b8593a;
   --chip: #f2f2f0;
 }
-/* The first paint happens before the host answers the handshake, and the body is
-   transparent, so without this the panel starts as near-black text on whatever
-   surface the host provides. */
+/* The body is transparent and the first paint lands before the host answers, so
+   without this the panel opens as near-black text on the host's own surface. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]):not(.light) {
     --fg: #ececec;
@@ -40,12 +39,14 @@ body {
 #root { display: grid; grid-template-columns: 190px 1fr; gap: 16px; padding: 4px; }
 @media (max-width: 620px) { #root { grid-template-columns: 1fr; } aside { display: none; } }
 
-aside { border-right: 1px solid var(--line); padding-right: 12px; }
+aside { border-right: 1px solid var(--line); padding-right: 12px; position: sticky; top: 0; align-self: start; }
 aside h2, main h2 { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 8px; font-weight: 600; }
-.cat { display: flex; justify-content: space-between; gap: 8px; width: 100%; text-align: left; background: none; border: 0; color: var(--fg); padding: 4px 6px; border-radius: 5px; cursor: pointer; font: inherit; }
+.cat { display: flex; justify-content: space-between; gap: 8px; width: 100%; text-align: left; background: none; border: 0; color: var(--fg); padding: 5px 7px; border-radius: 6px; cursor: pointer; font: inherit; }
 .cat:hover { background: var(--chip); }
 .cat[aria-pressed="true"] { background: var(--chip); font-weight: 600; }
+.cat[aria-pressed="true"] span:last-child { color: var(--fg); }
 .cat span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; }
+.cat.all { margin-bottom: 6px; padding-bottom: 9px; border-bottom: 1px solid var(--line); border-radius: 6px 6px 0 0; }
 
 .bar { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; }
 input[type="search"] { flex: 1; min-width: 0; padding: 7px 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--card); color: var(--fg); font: inherit; }
@@ -53,19 +54,29 @@ input[type="search"]:focus { outline: 2px solid var(--accent); outline-offset: -
 .count { color: var(--muted); font-size: 12px; white-space: nowrap; }
 
 .grid { display: grid; gap: 8px; }
-.item { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; background: var(--card); }
+.item { border: 1px solid var(--line); border-radius: 10px; padding: 11px 13px; background: var(--card); transition: border-color .12s ease; }
+.item:hover { border-color: var(--muted); }
 .top { display: flex; align-items: baseline; gap: 8px; }
-.name { font-weight: 600; }
-.stars { margin-left: auto; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
-.desc { color: var(--muted); margin: 4px 0 8px; }
+.name { font-size: 15px; font-weight: 600; letter-spacing: -.01em; margin: 0; }
+.stars { margin-left: auto; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; cursor: help; }
+.desc { color: var(--muted); margin: 5px 0 9px; }
 .meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; }
 .chip { background: var(--chip); border-radius: 20px; padding: 2px 9px; color: var(--muted); }
+/* Outlined rather than coloured, so it still reads without colour vision. */
+.fails { font-size: 11px; padding: 1px 7px; border-radius: 20px; color: var(--accent); border: 1px solid var(--accent); cursor: help; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
-button.copy { margin-left: auto; font: inherit; font-size: 12px; border: 1px solid var(--line); background: var(--card); color: var(--muted); border-radius: 6px; padding: 2px 9px; cursor: pointer; }
+button.copy {
+  font: inherit; font-size: 12px; border: 1px solid var(--line); background: var(--card); color: var(--muted);
+  border-radius: 6px; padding: 2px 9px; cursor: pointer; opacity: 0; transition: opacity .12s ease;
+}
+.item:hover .copy, .item:focus-within .copy, .copy:focus-visible { opacity: 1; }
 button.copy:hover { color: var(--fg); border-color: var(--muted); }
-.empty { color: var(--muted); padding: 24px 4px; }
-.note { color: var(--muted); font-size: 12px; margin-top: 12px; border-top: 1px solid var(--line); padding-top: 10px; }
+/* Touch has no hover, so the button would be invisible but still tappable. */
+@media (hover: none) { button.copy { opacity: 1; } }
+.empty { display: grid; gap: 3px; color: var(--muted); padding: 40px 4px; justify-items: start; }
+.empty strong { color: var(--fg); font-size: 15px; }
+.note { color: var(--muted); font-size: 12px; margin: 14px 0 0; }
 </style>
 <div id="root"><div class="empty">Loading…</div></div>
 <script type="module">
@@ -161,41 +172,45 @@ const stars = n => (n >= 1000 ? (n / 1000).toFixed(1) + "k" : String(n));
 function render() {
   const { plugins, categories, total, category, search } = state;
 
+  // Without an explicit label the two spans are read as one run, "Agents561".
   const cats = categories.map(c =>
-    `<button class="cat" data-cat="${esc(c.name)}" aria-pressed="${c.name === category}">
+    `<button class="cat" data-cat="${esc(c.name)}" aria-pressed="${c.name === category}"
+             aria-label="${esc(c.name)}, ${c.count} plugins">
        <span>${esc(c.name)}</span><span>${c.count}</span>
      </button>`).join("");
 
   const items = plugins.map(p => `
-    <div class="item">
+    <article class="item">
       <div class="top">
-        <span class="name">${esc(p.name)}</span>
-        <span class="stars">${stars(p.stars)} ★</span>
-      </div>
-      <div class="desc">${esc(p.description.slice(0, 180))}${p.description.length > 180 ? "…" : ""}</div>
-      <div class="meta">
-        ${p.categories.map(c => `<span class="chip">${esc(c)}</span>`).join("")}
-        <a href="https://github.com/${esc(p.repo)}" data-repo="${esc(p.repo)}">${esc(p.repo)}</a>
-        <span class="chip">${esc(p.license)}</span>
+        <h3 class="name">${esc(p.name)}</h3>
+        ${p.fails ? `<span class="fails" title="${esc(p.fails)}">won't load</span>` : ""}
+        <span class="stars" title="GitHub stars. Most of the catalogue has very few.">${stars(p.stars)} ★</span>
         <button class="copy" data-install="${esc(p.name)}">copy install</button>
       </div>
-    </div>`).join("");
+      <p class="desc">${esc(p.description.slice(0, 170))}${p.description.length > 170 ? "…" : ""}</p>
+      <div class="meta">
+        ${p.categories.slice(0, 3).map(c => `<span class="chip">${esc(c)}</span>`).join("")}
+        <span class="chip">${esc(p.license)}</span>
+        <a href="https://github.com/${esc(p.repo)}" data-repo="${esc(p.repo)}">${esc(p.repo)}</a>
+      </div>
+    </article>`).join("");
 
   root.innerHTML = `
     <aside>
       <h2>Categories</h2>
-      <button class="cat" data-cat="" aria-pressed="${!category}"><span>All</span><span>${state.allCount ?? ""}</span></button>
+      <button class="cat all" data-cat="" aria-pressed="${!category}"
+              aria-label="All categories, ${state.allCount ?? ""} plugins"><span>All</span><span>${state.allCount ?? ""}</span></button>
       ${cats}
     </aside>
     <main>
       <div class="bar">
-        <input type="search" placeholder="Search plugins" value="${esc(search)}" ${busy ? "disabled" : ""}>
-        <span class="count">${total} match${total === 1 ? "" : "es"}${plugins.length < total ? `, showing ${plugins.length}` : ""}</span>
+        <input type="search" placeholder="Search ${state.allCount ?? ""} plugins" value="${esc(search)}" ${busy ? "disabled" : ""}>
+        <span class="count">${total}${plugins.length < total ? ` · ${plugins.length} shown` : ""}</span>
       </div>
-      ${plugins.length ? `<div class="grid">${items}</div>` : `<div class="empty">Nothing matched.</div>`}
-      <div class="note">Filtered from the community marketplace. Entries without a licence, archived
-      repositories and those untouched for 180 days are excluded. Stars are popularity, not quality;
-      most of the catalogue has very few.</div>
+      ${plugins.length
+        ? `<div class="grid">${items}</div>`
+        : `<div class="empty"><strong>No matches</strong>Try fewer words, or pick a category.</div>`}
+      <p class="note">Filtered from anthropics/claude-plugins-community.</p>
     </main>`;
 }
 

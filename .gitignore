@@ -1,3 +1,6 @@
 node_modules/
 *.log
 mcp/preview.html
+
+# validator resume cache, not shipped
+data/.validate-cache.json

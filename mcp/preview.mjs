@@ -8,6 +8,17 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..");
 const catalogue = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "catalogue.json"), "utf8"));
 
+// Join the load checks in, so the preview exercises the failure marker too.
+try {
+  const v = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "validation.json"), "utf8"));
+  const fails = {};
+  for (const r of v.results) {
+    const e = r.problems.find(p => p.level === "error");
+    if (e) fails[r.name] = e.code;
+  }
+  for (const p of catalogue.plugins) if (fails[p.name]) p.fails = fails[p.name];
+} catch { /* not built yet */ }
+
 const tally = {};
 for (const p of catalogue.plugins) for (const c of p.categories) tally[c] = (tally[c] || 0) + 1;
 const categories = Object.entries(tally).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count }));

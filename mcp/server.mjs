@@ -13,6 +13,16 @@ const RESOURCE_URI = "ui://shortlist/app.html";
 const catalogue = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "catalogue.json"), "utf8"));
 const PLUGINS = catalogue.plugins;
 
+// Optional, written by build/validate.mjs. Absent on a fresh clone until it is run.
+const CHECKS = {};
+try {
+  const v = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "validation.json"), "utf8"));
+  for (const r of v.results) {
+    const errors = r.problems.filter(p => p.level === "error");
+    if (errors.length) CHECKS[r.name] = errors[0].code;
+  }
+} catch { /* not built yet */ }
+
 const categories = () => {
   const t = {};
   for (const p of PLUGINS) for (const c of p.categories) t[c] = (t[c] || 0) + 1;
@@ -31,7 +41,8 @@ function query({ search = "", category = "", minStars = 0, limit = 60 } = {}) {
     });
   }
   const sorted = [...rows].sort((a, b) => b.stars - a.stars || a.name.localeCompare(b.name));
-  return { total: rows.length, plugins: sorted.slice(0, limit) };
+  const page = sorted.slice(0, limit).map(p => CHECKS[p.name] ? { ...p, fails: CHECKS[p.name] } : p);
+  return { total: rows.length, plugins: page };
 }
 
 const TOOL = {
