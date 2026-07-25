@@ -1,25 +1,25 @@
 {
  "built": "2026-07-25",
  "checked": 2269,
- "ok": 1919,
+ "ok": 2061,
  "codes": {
+  "entry-points-above-the-plugin": 219,
   "manifest-name-mismatch": 435,
-  "skill-no-frontmatter": 85,
-  "no-manifest": 162,
-  "entry-points-above-the-plugin": 111,
   "mcp-no-servers": 89,
   "mcp-unanchored-path": 27,
   "hook-unknown-event": 5,
+  "no-manifest": 54,
   "no-capabilities": 125,
-  "skills-dir-without-skill-md": 24,
   "tree-unreadable": 37,
   "subdirectory-missing": 16,
   "manifest-unparseable": 1,
+  "skills-dir-without-skill-md": 24,
+  "skill-no-frontmatter": 85,
   "tree-truncated": 1,
   "hooks-no-events": 2,
-  "skill-description-thin": 3,
   "mcp-unparseable": 3,
   "mcp-absolute-path": 1,
+  "skill-description-thin": 3,
   "skill-no-description": 3
  },
  "results": [
@@ -35,9 +35,9 @@
      "detail": "manifest \"0x-ai\" vs marketplace \"0x\""
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/0x-agentic-gateway/SKILL.md"
+     "detail": "skills/0x-agentic-gateway/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -47,7 +47,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "10x-shopping",
@@ -56,9 +56,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugin"
     },
     {
      "level": "warn",
@@ -72,7 +72,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "10x-team",
@@ -347,9 +347,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at claude-code-plugin"
     }
    ],
    "capabilities": {
@@ -358,7 +358,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "ada-pdf-compliance",
@@ -593,9 +593,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/ag2-agent-guide, plugins/ag2-agent-reviewer, plugins/ag2-agent-scaffold"
     },
     {
      "level": "warn",
@@ -609,7 +609,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "agent-advisor",
@@ -1040,9 +1040,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at a2a-multi-agent, acp-agentic-commerce, ap2-agentic-payments"
     },
     {
      "level": "warn",
@@ -1056,7 +1056,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "agentic-council",
@@ -1282,9 +1282,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugin, tests/fixtures/invalid/plugins/absolute-path, tests/fixtures/invalid/plugins/component-in-claude-plugin"
     }
    ],
    "capabilities": {
@@ -1293,7 +1293,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "ai-adoption-playbook",
@@ -1501,9 +1501,9 @@
      "detail": "manifest \"ai-pm-frame\" vs marketplace \"ai-pm\""
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/init-pm/SKILL.md"
+     "detail": "skills/init-pm/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -1512,7 +1512,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "ai-skills-library",
@@ -1575,9 +1575,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugin"
     }
    ],
    "capabilities": {
@@ -1587,7 +1587,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "aight",
@@ -2017,9 +2017,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/amg-toolkit"
     },
     {
      "level": "warn",
@@ -2033,7 +2033,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "amni",
@@ -2391,9 +2391,9 @@
    "path": "generated-plugins/api-forge",
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/api-test/SKILL.md"
+     "detail": "skills/api-test/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -2403,7 +2403,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "apify-scraper",
@@ -3072,9 +3072,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at claude-plugin"
     },
     {
      "level": "warn",
@@ -3088,7 +3088,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "attention",
@@ -3477,9 +3477,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at extensions/claude-code"
     },
     {
      "level": "warn",
@@ -3493,7 +3493,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "axme-code",
@@ -4292,9 +4292,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/common, plugins/cucumber, plugins/playwright"
     },
     {
      "level": "warn",
@@ -4308,7 +4308,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "bridge-ds",
@@ -4433,9 +4433,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at packages/plugin"
     },
     {
      "level": "warn",
@@ -4449,7 +4449,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "browser-act",
@@ -5832,9 +5832,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugin"
     }
    ],
    "capabilities": {
@@ -5843,7 +5843,7 @@
     "agents": 0,
     "bin": 1
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "claude-backup",
@@ -6782,9 +6782,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/claude-flow-unity, plugins/claude-flow"
     }
    ],
    "capabilities": {
@@ -6793,7 +6793,7 @@
     "agents": 0,
     "bin": 1
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "claude-forge",
@@ -7288,9 +7288,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at claude-ops"
     },
     {
      "level": "warn",
@@ -7304,7 +7304,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "claude-paste",
@@ -7643,9 +7643,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/clerk, plugins/communications, plugins/council-ops"
     },
     {
      "level": "warn",
@@ -7659,7 +7659,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "claude-skills-updater",
@@ -7861,9 +7861,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugin"
     },
     {
      "level": "warn",
@@ -7877,7 +7877,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "claude-trading-skills-marketplace",
@@ -7886,9 +7886,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/trading-dividend-investing, plugins/trading-earnings-timing, plugins/trading-market-analysis"
     },
     {
      "level": "warn",
@@ -7902,7 +7902,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "claude-train-prep",
@@ -7931,9 +7931,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/claude-transcribe"
     },
     {
      "level": "warn",
@@ -7947,7 +7947,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "claude-trinity",
@@ -7961,34 +7961,34 @@
      "detail": "manifest \"pge-orchestrator\" vs marketplace \"claude-trinity\""
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/pge-autolaunch/SKILL.md"
+     "detail": "skills/pge-autolaunch/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/pge-clean/SKILL.md"
+     "detail": "skills/pge-clean/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/pge-indicator/SKILL.md"
+     "detail": "skills/pge-indicator/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/pge-notify/SKILL.md"
+     "detail": "skills/pge-notify/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/pge-preflight/SKILL.md"
+     "detail": "skills/pge-preflight/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/pge-statusline/SKILL.md"
+     "detail": "skills/pge-statusline/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -7998,7 +7998,7 @@
     "agents": 10,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "claude-universe",
@@ -8214,9 +8214,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/claudeflows"
     },
     {
      "level": "warn",
@@ -8230,7 +8230,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "claudescrumskill",
@@ -8425,9 +8425,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/clawvisor-local, plugins/clawvisor"
     },
     {
      "level": "warn",
@@ -8441,7 +8441,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "clean-architecture",
@@ -8450,64 +8450,64 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/boundary/SKILL.md"
+     "detail": "skills/boundary/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/check/SKILL.md"
+     "detail": "skills/check/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/components/SKILL.md"
+     "detail": "skills/components/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/controller/SKILL.md"
+     "detail": "skills/controller/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/diagram/SKILL.md"
+     "detail": "skills/diagram/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/entity/SKILL.md"
+     "detail": "skills/entity/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/gateway/SKILL.md"
+     "detail": "skills/gateway/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/init/SKILL.md"
+     "detail": "skills/init/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/main/SKILL.md"
+     "detail": "skills/main/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/migrate/SKILL.md"
+     "detail": "skills/migrate/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/presenter/SKILL.md"
+     "detail": "skills/presenter/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/review/SKILL.md"
+     "detail": "skills/review/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -8518,7 +8518,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "clean-code-assistant",
@@ -8734,9 +8734,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/bootstrap, plugins/code-review, plugins/code"
     },
     {
      "level": "warn",
@@ -8750,7 +8750,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "closedloop-skills",
@@ -8872,9 +8872,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/cloudplayplus"
     },
     {
      "level": "warn",
@@ -8888,7 +8888,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "clover",
@@ -9294,9 +9294,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/cicd-generation/SKILL.md"
+     "detail": "skills/cicd-generation/SKILL.md, trigger falls back to the first paragraph"
     },
     {
      "level": "warn",
@@ -9311,7 +9311,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "codescene-codehealth",
@@ -9341,9 +9341,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/code-audit, plugins/codesmith, plugins/discord-notify"
     },
     {
      "level": "warn",
@@ -9357,7 +9357,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "codex-bridge",
@@ -9834,9 +9834,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/conduitai"
     },
     {
      "level": "warn",
@@ -9850,7 +9850,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "conotate",
@@ -9888,9 +9888,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugin"
     }
    ],
    "capabilities": {
@@ -9899,7 +9899,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "content-analysis",
@@ -10006,9 +10006,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/context-checkpoint"
     },
     {
      "level": "warn",
@@ -10022,7 +10022,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "context-guardian",
@@ -10190,9 +10190,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at lease-impact-advisor, lenders-handbook-prescreen, sdlt-calculator"
     },
     {
      "level": "warn",
@@ -10206,7 +10206,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "cookiy",
@@ -10336,9 +10336,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugin"
     },
     {
      "level": "warn",
@@ -10352,7 +10352,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "coreyhaines31",
@@ -10529,34 +10529,34 @@
      "detail": "manifest \"CPA Practice Toolkit\" vs marketplace \"cpa-practice-toolkit\""
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/client-checklist/SKILL.md"
+     "detail": "skills/client-checklist/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/engagement-letter/SKILL.md"
+     "detail": "skills/engagement-letter/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/engagement-termination/SKILL.md"
+     "detail": "skills/engagement-termination/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/llc-monthly-summary/SKILL.md"
+     "detail": "skills/llc-monthly-summary/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/missing-docs-followup/SKILL.md"
+     "detail": "skills/missing-docs-followup/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/return-status-email/SKILL.md"
+     "detail": "skills/return-status-email/SKILL.md, trigger falls back to the first paragraph"
     },
     {
      "level": "warn",
@@ -10571,7 +10571,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "cpln",
@@ -10608,9 +10608,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at claude-plugin/kuboxx-craft-ui"
     },
     {
      "level": "warn",
@@ -10624,7 +10624,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "cratedb",
@@ -10633,14 +10633,14 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/core/SKILL.md"
+     "detail": "skills/core/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/mcp-setup/SKILL.md"
+     "detail": "skills/mcp-setup/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -10649,7 +10649,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "create-claude-plugin",
@@ -10708,9 +10708,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/critical-thinking-tools"
     },
     {
      "level": "warn",
@@ -10724,7 +10724,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "critique",
@@ -10850,9 +10850,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/csharp-roslyn-lsp"
     },
     {
      "level": "warn",
@@ -10866,7 +10866,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "csitrep-generator",
@@ -11204,9 +11204,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/code-review, plugins/dark-factory, plugins/mobile-agents"
     },
     {
      "level": "warn",
@@ -11220,7 +11220,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "dash0",
@@ -11519,9 +11519,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/dbt-engineer, templates/plugin-template"
     },
     {
      "level": "warn",
@@ -11535,7 +11535,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "dbt-toolkit",
@@ -11801,14 +11801,14 @@
      "detail": "manifest \"deepvalue-tase\" vs marketplace \"deep-value\""
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/deep-value-methodology/SKILL.md"
+     "detail": "skills/deep-value-methodology/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/tase-analysis/SKILL.md"
+     "detail": "skills/tase-analysis/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -11818,7 +11818,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "deeplake-hivemind",
@@ -12216,44 +12216,44 @@
      "detail": "manifest \"design-drift\" vs marketplace \"designs-drift\""
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/brands/airbnb/SKILL.md"
+     "detail": "skills/brands/airbnb/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/brands/airtable/SKILL.md"
+     "detail": "skills/brands/airtable/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/brands/amplitude/SKILL.md"
+     "detail": "skills/brands/amplitude/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/brands/anthropic/SKILL.md"
+     "detail": "skills/brands/anthropic/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/brands/apple/SKILL.md"
+     "detail": "skills/brands/apple/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/brands/bear/SKILL.md"
+     "detail": "skills/brands/bear/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/brands/brex/SKILL.md"
+     "detail": "skills/brands/brex/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/brands/cal/SKILL.md"
+     "detail": "skills/brands/cal/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -12263,7 +12263,7 @@
     "agents": 1,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "designwithclaude",
@@ -13020,14 +13020,14 @@
      "detail": "manifest \"draft\" vs marketplace \"draft-pm-brain\""
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/draft-connect/github/SKILL.md"
+     "detail": "skills/draft-connect/github/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/draft-connect/granola/SKILL.md"
+     "detail": "skills/draft-connect/granola/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -13037,7 +13037,7 @@
     "agents": 4,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "drafted-learn",
@@ -13496,9 +13496,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/elephant-goldfish"
     },
     {
      "level": "warn",
@@ -13512,7 +13512,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "elixir-expert-lsp",
@@ -13811,9 +13811,9 @@
    "path": "generated-plugins/env-guardian",
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/env-guard/SKILL.md"
+     "detail": "skills/env-guard/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -13823,7 +13823,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "envoy",
@@ -13926,9 +13926,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at culture-assessment, environmental-radar, first-principles-strategy"
     },
     {
      "level": "warn",
@@ -13942,7 +13942,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "eu-ai-act-compliance",
@@ -13977,9 +13977,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/evalloop, plugins/prediction-market-stack, plugins/social-signal-scanner"
     },
     {
      "level": "warn",
@@ -13993,7 +13993,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "evalview",
@@ -14356,9 +14356,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at frontend-fundamentals-plugin"
     },
     {
      "level": "warn",
@@ -14372,7 +14372,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "fhir-format",
@@ -14482,9 +14482,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/find-conversation"
     },
     {
      "level": "warn",
@@ -14498,7 +14498,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "findem-studio",
@@ -14507,9 +14507,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/findem-studio"
     },
     {
      "level": "warn",
@@ -14523,7 +14523,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "finops-skills",
@@ -14618,9 +14618,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at claude-code/photonforge, claude-code/tidy3d"
     },
     {
      "level": "warn",
@@ -14634,7 +14634,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "flint",
@@ -15065,9 +15065,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/future-video-studio"
     },
     {
      "level": "warn",
@@ -15081,7 +15081,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "g-cc",
@@ -15090,9 +15090,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/gemini"
     },
     {
      "level": "warn",
@@ -15106,7 +15106,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "gambit",
@@ -15129,9 +15129,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at claude-plugin"
     },
     {
      "level": "warn",
@@ -15145,7 +15145,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "gangsta",
@@ -15278,9 +15278,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugin"
     },
     {
      "level": "warn",
@@ -15294,7 +15294,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "gemini-plugin-cc",
@@ -15791,9 +15791,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugin"
     },
     {
      "level": "warn",
@@ -15807,7 +15807,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "global-entry-appointment-scanner",
@@ -15836,9 +15836,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/glow"
     },
     {
      "level": "warn",
@@ -15852,7 +15852,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "glyph",
@@ -15998,9 +15998,9 @@
      "detail": "manifest \"gomboc-community\" vs marketplace \"gomboc-ai-community\""
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/remediate/SKILL.md"
+     "detail": "skills/remediate/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -16009,7 +16009,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "goodmem",
@@ -16664,9 +16664,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/handoffkit"
     },
     {
      "level": "warn",
@@ -16680,7 +16680,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "harness",
@@ -16758,14 +16758,14 @@
      "detail": "manifest \"harness\" vs marketplace \"harness-engineering\""
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/archive/SKILL.md"
+     "detail": "skills/archive/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/canary/SKILL.md"
+     "detail": "skills/canary/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -16775,7 +16775,7 @@
     "agents": 4,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "harness-evolver",
@@ -17091,9 +17091,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/hive/SKILL.md"
+     "detail": "skills/hive/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -17102,7 +17102,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "hivemind",
@@ -17567,9 +17567,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at humwork"
     },
     {
      "level": "warn",
@@ -17583,7 +17583,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "hunaras",
@@ -17764,9 +17764,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugin"
     },
     {
      "level": "warn",
@@ -17780,7 +17780,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "icf-classification",
@@ -18229,9 +18229,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at infynon-pkg, infynon-trace, infynon-weave"
     },
     {
      "level": "warn",
@@ -18245,7 +18245,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "inkbox",
@@ -18857,9 +18857,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/juicify"
     },
     {
      "level": "warn",
@@ -18873,7 +18873,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "julia-lsp",
@@ -18966,9 +18966,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/kaizen"
     },
     {
      "level": "warn",
@@ -18982,7 +18982,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "kansei-link",
@@ -19054,9 +19054,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at .claude/plugins/karimo"
     },
     {
      "level": "warn",
@@ -19070,7 +19070,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "karma",
@@ -19846,9 +19846,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/learncc"
     },
     {
      "level": "warn",
@@ -19862,7 +19862,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "learned-behavior",
@@ -20067,9 +20067,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/light-mcp"
     },
     {
      "level": "warn",
@@ -20083,7 +20083,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "lightning-tv-expert-plugin",
@@ -20382,9 +20382,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/liteparse, plugins/llamaparse-mcp, plugins/llamaparse"
     },
     {
      "level": "warn",
@@ -20398,7 +20398,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "llamaparse-plugin",
@@ -20513,9 +20513,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugin"
     },
     {
      "level": "warn",
@@ -20529,7 +20529,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "llm-wiki-plugin",
@@ -20861,9 +20861,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/snowball, plugins/ycofficehour"
     },
     {
      "level": "warn",
@@ -20877,7 +20877,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "lotlytics",
@@ -21733,9 +21733,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/meeting-bots"
     },
     {
      "level": "warn",
@@ -21749,7 +21749,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "meetstream-ai-meeting-bot-api",
@@ -21792,9 +21792,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at mem0-plugin"
     }
    ],
    "capabilities": {
@@ -21803,7 +21803,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "membase",
@@ -21828,9 +21828,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/memento"
     },
     {
      "level": "warn",
@@ -21844,7 +21844,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "memex",
@@ -21910,9 +21910,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/memo-yoshi/SKILL.md"
+     "detail": "skills/memo-yoshi/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -21921,7 +21921,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "memoriant-docforce-skill",
@@ -21972,29 +21972,29 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/analyze-graph/SKILL.md"
+     "detail": "skills/analyze-graph/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/compile-policy/SKILL.md"
+     "detail": "skills/compile-policy/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/detect-conflicts/SKILL.md"
+     "detail": "skills/detect-conflicts/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/generate-audit/SKILL.md"
+     "detail": "skills/generate-audit/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/trace-compliance/SKILL.md"
+     "detail": "skills/trace-compliance/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -22003,7 +22003,7 @@
     "agents": 2,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "memoriant-llm-gateway-skill",
@@ -22026,24 +22026,24 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/discover-schema/SKILL.md"
+     "detail": "skills/discover-schema/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/explore-crm/SKILL.md"
+     "detail": "skills/explore-crm/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/query-data/SKILL.md"
+     "detail": "skills/query-data/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/query-tickets/SKILL.md"
+     "detail": "skills/query-tickets/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -22052,7 +22052,7 @@
     "agents": 2,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "memoriant-ops-bot-skill",
@@ -22061,24 +22061,24 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/check-status/SKILL.md"
+     "detail": "skills/check-status/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/manage-agents/SKILL.md"
+     "detail": "skills/manage-agents/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/manage-sessions/SKILL.md"
+     "detail": "skills/manage-sessions/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/send-remote-command/SKILL.md"
+     "detail": "skills/send-remote-command/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -22087,7 +22087,7 @@
     "agents": 2,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "memoriant-patent-skills",
@@ -22911,9 +22911,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/claude"
     }
    ],
    "capabilities": {
@@ -22923,7 +22923,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "monte-carlo-agent-toolkit",
@@ -23208,9 +23208,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at mutter-claude"
     },
     {
      "level": "warn",
@@ -23224,7 +23224,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "mvnpm",
@@ -23499,9 +23499,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/neo-clarification/SKILL.md"
+     "detail": "skills/neo-clarification/SKILL.md, trigger falls back to the first paragraph"
     },
     {
      "level": "warn",
@@ -23768,9 +23768,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/nexusfeed-ltl"
     }
    ],
    "capabilities": {
@@ -23780,7 +23780,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "ng",
@@ -24145,9 +24145,9 @@
    "path": "plugins/notion-memory",
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/notion-memory/SKILL.md"
+     "detail": "skills/notion-memory/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -24156,7 +24156,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "nova-thesis",
@@ -25431,9 +25431,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/parallax"
     }
    ],
    "capabilities": {
@@ -25443,7 +25443,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "paramify",
@@ -25886,9 +25886,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/phasefolio"
     },
     {
      "level": "warn",
@@ -25902,7 +25902,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "phd-deepread",
@@ -26329,9 +26329,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at playwright-aqa"
     },
     {
      "level": "warn",
@@ -26345,7 +26345,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "playwright-pro",
@@ -26503,9 +26503,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/pm-advanced, plugins/pm-analytics, plugins/pm-business"
     }
    ],
    "capabilities": {
@@ -26514,7 +26514,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "pm-skills",
@@ -26767,9 +26767,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at pr-review-verifier"
     },
     {
      "level": "warn",
@@ -26783,7 +26783,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "pramana",
@@ -26908,9 +26908,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/preserve-session, plugins/skill-curator"
     },
     {
      "level": "warn",
@@ -26924,7 +26924,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "preset-cli-skills",
@@ -27045,34 +27045,34 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/borrower-monitoring/SKILL.md"
+     "detail": "skills/borrower-monitoring/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/covenant-compliance/SKILL.md"
+     "detail": "skills/covenant-compliance/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/credit-memo-standards/SKILL.md"
+     "detail": "skills/credit-memo-standards/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/credit-model-standards/SKILL.md"
+     "detail": "skills/credit-model-standards/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/ebitda-addback-treatment/SKILL.md"
+     "detail": "skills/ebitda-addback-treatment/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/quarterly-package-extraction/SKILL.md"
+     "detail": "skills/quarterly-package-extraction/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -27081,7 +27081,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "private-journal-mcp",
@@ -27508,9 +27508,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/promptbook"
     },
     {
      "level": "warn",
@@ -27524,7 +27524,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "promptfoo-evals",
@@ -27592,9 +27592,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/check-architecture, plugins/check-performance, plugins/check-security"
     },
     {
      "level": "warn",
@@ -27608,7 +27608,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "protect-mcp",
@@ -27632,9 +27632,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at prowlo"
     },
     {
      "level": "warn",
@@ -27648,7 +27648,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "pskoett-ai-skills",
@@ -28403,9 +28403,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/recursive-research"
     },
     {
      "level": "warn",
@@ -28419,7 +28419,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "redash-mcp",
@@ -28628,9 +28628,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/remotion"
     },
     {
      "level": "warn",
@@ -28644,7 +28644,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "render",
@@ -28914,9 +28914,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at resume-shortlisting"
     },
     {
      "level": "warn",
@@ -28930,7 +28930,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "resume-to-website",
@@ -28939,9 +28939,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/resume-to-website"
     },
     {
      "level": "warn",
@@ -28955,7 +28955,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "retrieve-the-forgotten-memory",
@@ -29156,9 +29156,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at riff"
     },
     {
      "level": "warn",
@@ -29172,7 +29172,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "ripplo",
@@ -29469,9 +29469,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at running-race-coach"
     },
     {
      "level": "warn",
@@ -29485,7 +29485,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "runway-api-skills",
@@ -29967,14 +29967,14 @@
      "detail": "manifest \"mcp-auth\" vs marketplace \"scalekit-mcp-auth\""
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/express-mcp-server/SKILL.md"
+     "detail": "skills/express-mcp-server/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/fastapi-fastmcp/SKILL.md"
+     "detail": "skills/fastapi-fastmcp/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -29985,7 +29985,7 @@
     "agents": 2,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "scalekit-modular-scim",
@@ -30201,9 +30201,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/sculpture-guide/SKILL.md"
+     "detail": "skills/sculpture-guide/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -30212,7 +30212,7 @@
     "agents": 1,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "scylladb",
@@ -30677,9 +30677,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/silverbee"
     },
     {
      "level": "warn",
@@ -30693,7 +30693,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "seo-content-pipeline",
@@ -30786,9 +30786,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at providers/claude/plugin"
     }
    ],
    "capabilities": {
@@ -30797,7 +30797,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "session-backup",
@@ -30884,29 +30884,29 @@
      "detail": "manifest \"orch\" vs marketplace \"session-orchestration\""
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/alpha/SKILL.md"
+     "detail": "skills/alpha/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/beta/SKILL.md"
+     "detail": "skills/beta/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/delta/SKILL.md"
+     "detail": "skills/delta/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/gamma/SKILL.md"
+     "detail": "skills/gamma/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/polish/SKILL.md"
+     "detail": "skills/polish/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -30915,7 +30915,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "session-orchestrator",
@@ -31708,9 +31708,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/code-audit, plugins/codesmith, plugins/discord-notify"
     },
     {
      "level": "warn",
@@ -31724,7 +31724,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "skills-lab",
@@ -31944,9 +31944,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at packages/plugin"
     },
     {
      "level": "warn",
@@ -31960,7 +31960,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "smart-compact",
@@ -31998,9 +31998,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at smartlink-basics"
     },
     {
      "level": "warn",
@@ -32014,7 +32014,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "smb-cybersecurity-policy-kit",
@@ -32126,9 +32126,9 @@
      "detail": "manifest \"somanylemons\" vs marketplace \"so-many-lemons\""
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/lemons/SKILL.md"
+     "detail": "skills/lemons/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -32138,7 +32138,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "social-automation",
@@ -32182,9 +32182,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/evalloop, plugins/prediction-market-stack, plugins/social-signal-scanner"
     },
     {
      "level": "warn",
@@ -32198,7 +32198,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "socialclaw-social-media-scheduling-posting-and-analytics-for-ai-",
@@ -32441,9 +32441,9 @@
    "path": "plugins/sosa-compliance-checker",
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/sosa-audit/SKILL.md"
+     "detail": "skills/sosa-audit/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -32452,7 +32452,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "sosa-governor",
@@ -32502,9 +32502,9 @@
      "detail": "manifest \"soul-change\" vs marketplace \"soul-change-claude-plugin\""
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/soul-change/SKILL.md"
+     "detail": "skills/soul-change/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -32514,7 +32514,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "soulz",
@@ -32659,9 +32659,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/specark"
     },
     {
      "level": "warn",
@@ -32675,7 +32675,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "spec-driven-development",
@@ -32846,9 +32846,9 @@
      "detail": "manifest \"skillpkg\" vs marketplace \"spm\""
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-description",
-     "detail": "skills/skillpkg-usage/SKILL.md"
+     "detail": "skills/skillpkg-usage/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -32858,7 +32858,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "spoki",
@@ -32882,9 +32882,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/evalloop, plugins/prediction-market-stack, plugins/social-signal-scanner"
     },
     {
      "level": "warn",
@@ -32898,7 +32898,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "spot-orbit",
@@ -33009,9 +33009,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/api, plugins/hawkscan-ci, plugins/hawkscan"
     },
     {
      "level": "warn",
@@ -33030,7 +33030,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "stackpilot",
@@ -33325,9 +33325,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/strale-claude-code"
     }
    ],
    "capabilities": {
@@ -33336,7 +33336,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "strands-sdk",
@@ -34413,9 +34413,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/tdd-loop/SKILL.md"
+     "detail": "skills/tdd-loop/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -34424,7 +34424,7 @@
     "agents": 2,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "tdd-guard",
@@ -34980,9 +34980,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/thesis-engine"
     },
     {
      "level": "warn",
@@ -34996,7 +34996,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "thesis-polish",
@@ -35005,9 +35005,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at external_plugins/asana, external_plugins/context7, external_plugins/discord"
     },
     {
      "level": "warn",
@@ -35021,7 +35021,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "thinkfu",
@@ -35102,9 +35102,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/tianluo"
     },
     {
      "level": "warn",
@@ -35118,7 +35118,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "ticket-plugin",
@@ -35153,9 +35153,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-description",
-     "detail": "skills/augmented-coding/SKILL.md"
+     "detail": "skills/augmented-coding/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -35164,7 +35164,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "tidycoder",
@@ -35564,9 +35564,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugin"
     },
     {
      "level": "warn",
@@ -35580,7 +35580,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "trackian-mcp-server",
@@ -35693,9 +35693,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/trapic-review/SKILL.md"
+     "detail": "skills/trapic-review/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -35706,7 +35706,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "travel-search-and-booking-api-and-skills",
@@ -35779,14 +35779,14 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/research-trip/SKILL.md"
+     "detail": "skills/research-trip/SKILL.md, trigger falls back to the first paragraph"
     },
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/static-trip/SKILL.md"
+     "detail": "skills/static-trip/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -35795,7 +35795,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "trip1",
@@ -36053,9 +36053,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at packages/plugin"
     }
    ],
    "capabilities": {
@@ -36064,7 +36064,7 @@
     "agents": 0,
     "bin": 3
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "tylor",
@@ -36218,9 +36218,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at finance-uk"
     },
     {
      "level": "warn",
@@ -36234,7 +36234,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "uk-legal-plugin",
@@ -36243,9 +36243,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at ai-governance-legal-uk, commercial-legal-uk, corporate-legal-uk"
     },
     {
      "level": "warn",
@@ -36259,7 +36259,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "ultimate-seo-geo",
@@ -36397,9 +36397,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/aesthetics-and-emotion-principles, plugins/cognition-and-learnability-principles, plugins/interaction-and-control-principles"
     },
     {
      "level": "warn",
@@ -36413,7 +36413,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "unofficial-tailscale-skills",
@@ -36452,9 +36452,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/unstack"
     },
     {
      "level": "warn",
@@ -36468,7 +36468,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "upfront",
@@ -36477,9 +36477,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugin"
     },
     {
      "level": "warn",
@@ -36493,7 +36493,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "upkeep",
@@ -36918,9 +36918,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at claude/verifiedx"
     }
    ],
    "capabilities": {
@@ -36929,7 +36929,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "version-sentinel",
@@ -36989,9 +36989,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/vibe-cartographer"
     },
     {
      "level": "warn",
@@ -37005,7 +37005,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "vibe-coding",
@@ -37186,9 +37186,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at packages/plugin"
     },
     {
      "level": "warn",
@@ -37202,7 +37202,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "vibeguard",
@@ -37275,9 +37275,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/vibiz"
     },
     {
      "level": "warn",
@@ -37291,7 +37291,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "video-library-classifier",
@@ -37552,9 +37552,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/voicenter-api, plugins/voicenter-bot-builder, plugins/voicenter-mcp"
     },
     {
      "level": "warn",
@@ -37568,7 +37568,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "voila-api",
@@ -38210,9 +38210,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/academic-affairs, plugins/accreditation, plugins/admissions-enrollment"
     },
     {
      "level": "warn",
@@ -38226,7 +38226,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "whitegloveai-k12",
@@ -38235,9 +38235,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at plugins/academics-instruction, plugins/athletics-extracurricular, plugins/board-ops"
     },
     {
      "level": "warn",
@@ -38251,7 +38251,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "whodb",
@@ -38393,9 +38393,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at outlook"
     },
     {
      "level": "warn",
@@ -38409,7 +38409,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "windows-screenshot-paste",
@@ -38432,9 +38432,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-description",
-     "detail": "skills/business-data/SKILL.md"
+     "detail": "skills/business-data/SKILL.md, trigger falls back to the first paragraph"
     },
     {
      "level": "warn",
@@ -38449,7 +38449,7 @@
     "agents": 1,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "wiq",
@@ -38624,9 +38624,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
-     "code": "no-manifest",
-     "detail": ".claude-plugin/plugin.json"
+     "level": "warn",
+     "code": "entry-points-above-the-plugin",
+     "detail": "nothing at the repository root, a manifest sits at wordsmith"
     },
     {
      "level": "warn",
@@ -38640,7 +38640,7 @@
     "agents": 0,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "work-unit-roadmap",
@@ -38986,9 +38986,9 @@
    "path": null,
    "problems": [
     {
-     "level": "error",
+     "level": "warn",
      "code": "skill-no-frontmatter",
-     "detail": "skills/fix/SKILL.md"
+     "detail": "skills/fix/SKILL.md, trigger falls back to the first paragraph"
     }
    ],
    "capabilities": {
@@ -38998,7 +38998,7 @@
     "agents": 1,
     "bin": 0
    },
-   "ok": false
+   "ok": true
   },
   {
    "name": "zapier",

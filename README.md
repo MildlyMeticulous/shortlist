@@ -77,23 +77,38 @@ shortlist show <name>         what a plugin provides, and any problems
 shortlist find <words> --working    hide entries that fail the checks
 ```
 
-Of 2,269 upstream entries, 1,919 load cleanly and 350 do not. The most common failures:
+Of 2,269 upstream entries, 2,061 load cleanly and 208 do not. The errors:
 
 ```
-  162  no manifest at the pinned path
   125  no skills, commands, agents, hooks, servers or binaries
-   85  a SKILL.md with no frontmatter
+   54  no manifest anywhere in the repository
+   37  repository or commit unreadable
    16  the marketplace path misses the plugin directory
+    5  a hook bound to an event that does not exist
 ```
 
-Skill frontmatter is the one that hurts. A `SKILL.md` with no `description` is never
-auto-invoked, so the plugin installs without error and then does nothing.
+Warnings are separate and do not count as failures. The largest is 219 entries whose
+marketplace `path` sits above the directory the plugin actually lives in, which is only a
+warning because whether the host falls back to a `marketplace.json` beside it has not been
+confirmed.
 
-Four of these checks were wrong when first written, and each one flagged working plugins:
-an outdated hook-event list marked `expo` broken, CRLF files parsed as having no
-frontmatter at all, symlinked `SKILL.md` files read as their own link target, and
-`git-subdir` entries read as having no repository. Every code here was checked against the
-live repository before being trusted. If you add one, do the same.
+Six of these checks were wrong when first written, and every one of them flagged working
+plugins:
+
+```
+  a hook-event list written from memory, 9 of the real 30, marked expo broken
+  CRLF files parsed as empty, because "." does not match "\r" in JavaScript
+  symlinked SKILL.md read as its own link target, since git stores the path as the blob
+  git-subdir entries read as having no repository, they carry a bare owner/repo
+  entries with a manifest deeper in the tree reported as having none at all
+  a missing skill description treated as fatal
+```
+
+That last one was the worst, because the whole check was built on it. The docs say a
+skill with no `description` falls back to the first paragraph of its markdown, so those
+skills work and the check was measuring nothing. Verify against the docs and a live
+repository before adding a code here, and prefer `warn` whenever the failure mode is a
+guess.
 
 Nothing here executes third-party code. It is one git tree read per entry and then raw
 file reads, so it is safe to run over the whole catalogue. Starting the MCP servers to see

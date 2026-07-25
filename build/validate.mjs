@@ -112,8 +112,16 @@ async function validate(entry) {
   if (sub && files.length === 0) { add("error", "subdirectory-missing", sub); return result; }
 
   const manifestPath = ".claude-plugin/plugin.json";
+  const manifestsBelow = files
+    .filter(f => f.endsWith(".claude-plugin/plugin.json") && f !== manifestPath)
+    .map(f => f.replace(/\/?\.claude-plugin\/plugin\.json$/, ""));
+
   if (!has(manifestPath)) {
-    add("error", "no-manifest", manifestPath);
+    if (manifestsBelow.length)
+      add("warn", "entry-points-above-the-plugin",
+        `nothing at ${sub || "the repository root"}, a manifest sits at ${manifestsBelow.slice(0, 3).join(", ")}`);
+    else
+      add("error", "no-manifest", manifestPath);
   } else {
     let manifest;
     try { manifest = JSON.parse(await readFile(manifestPath)); }
@@ -129,8 +137,8 @@ async function validate(entry) {
     const text = await readFile(f);
     if (text === null) { add("warn", "skill-unreadable", f); continue; }
     const fm = frontmatter(text);
-    if (!fm) add("error", "skill-no-frontmatter", f);
-    else if (!fm.description) add("error", "skill-no-description", f);
+    if (!fm) add("warn", "skill-no-frontmatter", `${f}, trigger falls back to the first paragraph`);
+    else if (!fm.description) add("warn", "skill-no-description", `${f}, trigger falls back to the first paragraph`);
     else if (fm.description.length < 20) add("warn", "skill-description-thin", `${f} (${fm.description.length} chars)`);
   }
   if (under("skills").length && !skillFiles.length)
@@ -173,9 +181,6 @@ async function validate(entry) {
 
   const c = result.capabilities;
   if (!c.skills && !c.commands && !c.agents && !c.hooks && !c.mcp && !c.bin) {
-    const manifestsBelow = files
-      .filter(f => f.endsWith(".claude-plugin/plugin.json") && f !== manifestPath)
-      .map(f => f.replace(/\/?\.claude-plugin\/plugin\.json$/, ""));
     if (manifestsBelow.length)
       add("warn", "entry-points-above-the-plugin",
         `nothing at ${sub || "the repository root"}, a manifest sits at ${manifestsBelow.slice(0, 3).join(", ")}`);
