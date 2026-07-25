@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -19,6 +20,18 @@ try {
     if (errors.length) CHECKS[r.name] = errors[0].code;
   }
 } catch {}
+
+const MARKETPLACE = "claude-community";
+const MARKETPLACE_SOURCE = "anthropics/claude-plugins-community";
+
+const marketplaceReady = () => {
+  try {
+    const known = path.join(os.homedir(), ".claude", "plugins", "known_marketplaces.json");
+    return Object.keys(JSON.parse(fs.readFileSync(known, "utf8"))).includes(MARKETPLACE);
+  } catch {
+    return false;
+  }
+};
 
 const categories = () => {
   const t = {};
@@ -103,7 +116,13 @@ function handle(msg) {
         : "No plugins matched.";
       return ok(id, {
         content: [{ type: "text", text: JSON.stringify({ ...data, categories: categories(), summary }) }],
-        structuredContent: { ...data, categories: categories() },
+        structuredContent: {
+          ...data,
+          categories: categories(),
+          marketplace: MARKETPLACE,
+          marketplaceSource: MARKETPLACE_SOURCE,
+          marketplaceReady: marketplaceReady(),
+        },
         _meta: { ui: { resourceUri: RESOURCE_URI } },
       });
     }

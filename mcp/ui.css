@@ -67,6 +67,7 @@ button.copy {
 .item:hover .copy, .item:focus-within .copy, .copy:focus-visible { opacity: 1; }
 button.copy:hover { color: var(--fg); border-color: var(--muted); }
 @media (hover: none) { button.copy { opacity: 1; } }
+.fallback { margin-left: auto; font-size: 11px; color: var(--muted); user-select: all; white-space: pre; }
 .empty { display: grid; gap: 3px; color: var(--muted); padding: 40px 4px; justify-items: start; }
 .empty strong { color: var(--fg); font-size: 15px; }
 .note { color: var(--muted); font-size: 12px; margin: 14px 0 0; }

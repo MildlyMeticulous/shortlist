@@ -22,7 +22,7 @@ function render() {
         <h3 class="name">${esc(p.name)}</h3>
         ${p.fails ? `<span class="fails" title="${esc(p.fails)}">won't load</span>` : ""}
         <span class="stars" title="GitHub stars. Most of the catalogue has very few.">${stars(p.stars)} ★</span>
-        <button class="copy" data-install="${esc(p.name)}">copy install</button>
+        <button class="copy" data-install="${esc(p.name)}">install</button>
       </div>
       <p class="desc">${esc(p.description.slice(0, 170))}${p.description.length > 170 ? "…" : ""}</p>
       <div class="meta">
@@ -76,6 +76,9 @@ function absorb(result) {
   state.plugins = data.plugins ?? [];
   state.total = data.total ?? state.plugins.length;
   if (data.categories) state.categories = data.categories;
+  if (data.marketplace) state.marketplace = data.marketplace;
+  if (data.marketplaceSource) state.marketplaceSource = data.marketplaceSource;
+  if (data.marketplaceReady !== undefined) state.marketplaceReady = data.marketplaceReady;
   if (!state.category && !state.search) state.allCount = state.total;
 }
 
@@ -89,15 +92,45 @@ root.addEventListener("click", e => {
     return void app.openLink({ url: `https://github.com/${link.dataset.repo}` }).catch(() => {});
   }
 
-  const copy = e.target.closest("[data-install]");
-  if (copy) {
-    const cmd = `/plugin install ${copy.dataset.install}@claude-community`;
-    navigator.clipboard?.writeText(cmd).then(
-      () => { copy.textContent = "copied"; setTimeout(() => (copy.textContent = "copy install"), 1200); },
-      () => app.sendMessage?.({ content: cmd })
-    );
-  }
+  const button = e.target.closest("[data-install]");
+  if (button) return void install(button);
 });
+
+async function install(button) {
+  const name = button.dataset.install;
+  const marketplace = state.marketplace ?? "claude-community";
+  const commands = [];
+  if (!state.marketplaceReady)
+    commands.push(`/plugin marketplace add ${state.marketplaceSource ?? "anthropics/claude-plugins-community"}`);
+  commands.push(`/plugin install ${name}@${marketplace}`);
+
+  const settle = (label, ms = 1600) => {
+    button.textContent = label;
+    setTimeout(() => { button.textContent = "install"; button.disabled = false; }, ms);
+  };
+
+  button.disabled = true;
+  button.textContent = "sending";
+  try {
+    for (const text of commands) {
+      const res = await app.sendMessage({ role: "user", content: [{ type: "text", text }] });
+      if (res?.isError) throw new Error("host rejected the message");
+    }
+    state.marketplaceReady = true;
+    settle("sent");
+  } catch {
+    const cmd = commands.join("\n");
+    try {
+      await navigator.clipboard.writeText(cmd);
+      settle("copied, paste it", 2600);
+    } catch {
+      button.replaceWith(Object.assign(document.createElement("code"), {
+        className: "fallback",
+        textContent: cmd,
+      }));
+    }
+  }
+}
 
 let typing;
 root.addEventListener("input", e => {

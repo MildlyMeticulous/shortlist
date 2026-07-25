@@ -21,13 +21,32 @@ for (const p of catalogue.plugins) for (const c of p.categories) tally[c] = (tal
 const categories = Object.entries(tally).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count }));
 const plugins = [...catalogue.plugins].sort((a, b) => b.stars - a.stars).slice(0, 40);
 
+const marketplace = {
+  marketplace: "claude-community",
+  marketplaceSource: "anthropics/claude-plugins-community",
+  marketplaceReady: process.argv.includes("--marketplace-ready"),
+};
+
 const stub = `
+globalThis.__sent = [];
 globalThis.__ext = {
   App: class {
     constructor() { this.hostContext = { theme: "light" }; }
+    async sendMessage(params) {
+      globalThis.__sent.push(params);
+      const log = document.getElementById("sent") || (() => {
+        const d = document.createElement("pre");
+        d.id = "sent";
+        d.style.cssText = "position:fixed;bottom:0;left:0;right:0;max-height:30vh;overflow:auto;margin:0;padding:8px;background:#111;color:#0f0;font:12px monospace;z-index:9";
+        document.body.appendChild(d);
+        return d;
+      })();
+      log.textContent += params.role + ": " + params.content.map(c => c.text).join(" ") + "\\n";
+      return {};
+    }
     async connect() {
       setTimeout(() => this.ontoolresult?.({
-        structuredContent: ${JSON.stringify({ total: catalogue.plugins.length, plugins, categories })}
+        structuredContent: ${JSON.stringify({ total: catalogue.plugins.length, plugins, categories, ...marketplace })}
       }), 0);
     }
     async callServerTool({ arguments: a }) {
@@ -37,7 +56,7 @@ globalThis.__ext = {
       if (a.category) rows = rows.filter(p => p.categories.includes(a.category));
       if (terms.length) rows = rows.filter(p => terms.every(t =>
         (p.name + " " + p.description + " " + p.categories.join(" ")).toLowerCase().includes(t)));
-      return { structuredContent: { total: rows.length, plugins: rows.slice(0, 60), categories: ${JSON.stringify(categories)} } };
+      return { structuredContent: { total: rows.length, plugins: rows.slice(0, 60), categories: ${JSON.stringify(categories)}, ...${JSON.stringify(marketplace)} } };
     }
     async openLink() {}
   },
