@@ -99,8 +99,11 @@ build/                       regenerates the snapshot
 bundle rather than fetching one, because the iframe is sandboxed and nothing external
 loads.
 
-The panel has been checked against a stub host with `node mcp/preview.mjs`, which
-verifies the layout, search and category filtering. It has not yet been watched rendering
-inside a real Claude host.
+The panel has been checked against a stub host with `node mcp/preview.mjs`, rendered in a
+browser at desktop and narrow widths, on a dark surface, with search and category
+filtering exercised. The body is transparent so the panel takes the host's background,
+which means the palette has to be right before the host answers the handshake; that is
+what the `prefers-color-scheme` block in `ui.css` is for. It has not yet been watched
+rendering inside a real Claude host.
 
 MIT.

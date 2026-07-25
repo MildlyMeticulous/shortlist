@@ -6,6 +6,19 @@
   --accent: #b8593a;
   --chip: #f2f2f0;
 }
+/* The first paint happens before the host answers the handshake, and the body is
+   transparent, so without this the panel starts as near-black text on whatever
+   surface the host provides. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not(.light) {
+    --fg: #ececec;
+    --muted: #9a9a9a;
+    --line: #2e2e2e;
+    --card: #1c1c1c;
+    --accent: #e08a63;
+    --chip: #262626;
+  }
+}
 :root[data-theme="dark"], :root.dark {
   --fg: #ececec;
   --muted: #9a9a9a;
