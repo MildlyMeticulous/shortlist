@@ -9,7 +9,8 @@ export const CATEGORIES = [
 
 // Ordered: the first rule that matches wins, so put the specific ones first.
 const RULES = [
-  ["Web3", /\b(web3|solidity|ethereum|erc-?20|blockchain|smart contract|wallet|defi|nft|solana)\b/i],
+  // "wallet" on its own hits database auth docs, so it needs crypto context.
+  ["Web3", /\b(web3|solidity|ethereum|erc-?(20|721)|blockchain|smart contract|defi|nft|solana|aptos|dapp|evm|metamask|on-?chain|crypto ?wallet)\b/i],
   ["Security", /\b(security|vulnerab|pentest|owasp|cve|secret scan|sast|dast|threat model|audit(ing)? code|compliance)\b/i],
   ["Testing", /\b(test(s|ing)?|tdd|bdd|jest|pytest|vitest|playwright|cypress|coverage|e2e|unit test)\b/i],
   ["Code review", /\b(code review|reviewer|pull request review|pr review|lint(er|ing)?|refactor|code quality|static analysis)\b/i],

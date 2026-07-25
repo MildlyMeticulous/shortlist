@@ -1704,6 +1704,7 @@
    "pushed": "2026-06-22",
    "license": "Apache-2.0",
    "categories": [
+    "Web3",
     "Documentation",
     "Agents",
     "Integrations",
@@ -2931,7 +2932,6 @@
    "pushed": "2026-07-20",
    "license": "UPL-1.0",
    "categories": [
-    "Web3",
     "Testing",
     "Database",
     "Cloud",
@@ -7372,6 +7372,7 @@
    "pushed": "2026-07-23",
    "license": "MIT",
    "categories": [
+    "Web3",
     "Security",
     "Backend",
     "Data",
@@ -10056,7 +10057,7 @@
    "pushed": "2026-07-19",
    "license": "MIT",
    "categories": [
-    "Utility"
+    "Web3"
    ]
   },
   {
@@ -11773,6 +11774,7 @@
    "pushed": "2026-07-25",
    "license": "MIT",
    "categories": [
+    "Web3",
     "Search"
    ]
   },
@@ -14933,7 +14935,6 @@
    "pushed": "2026-07-19",
    "license": "MIT",
    "categories": [
-    "Web3",
     "Language support",
     "Database",
     "Frontend",
@@ -15323,6 +15324,7 @@
    "pushed": "2026-03-18",
    "license": "MIT",
    "categories": [
+    "Web3",
     "Search"
    ]
   },
@@ -17369,7 +17371,6 @@
    "pushed": "2026-05-16",
    "license": "MIT",
    "categories": [
-    "Web3",
     "Backend",
     "Agents",
     "Integrations"
@@ -17980,6 +17981,7 @@
    "pushed": "2026-05-19",
    "license": "MIT",
    "categories": [
+    "Web3",
     "Testing",
     "Backend",
     "Integrations"
@@ -20219,7 +20221,7 @@
    "pushed": "2026-04-09",
    "license": "MIT",
    "categories": [
-    "Web3"
+    "Utility"
    ]
   },
   {

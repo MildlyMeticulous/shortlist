@@ -12,7 +12,13 @@ view of it behind a command.
 /plugin install shortlist@shortlist
 ```
 
-Then ask Claude for a plugin in plain words, or run the command yourself:
+Ask Claude to show you plugins and it opens a browsable panel in the conversation:
+a category sidebar with counts, a search box, and a card per plugin with its stars,
+licence, repository and a copy-the-install-command button. That panel is an
+[MCP App](https://modelcontextprotocol.io/extensions/apps/overview), rendered by the
+host in a sandboxed iframe, so it works in the desktop app rather than only the terminal.
+
+The same catalogue is available as a command:
 
 ```
 shortlist find test coverage
@@ -75,11 +81,26 @@ The data is a snapshot. Rebuild it with `node build/build-catalogue.mjs <plugins
 
 ```
 .claude-plugin/plugin.json   manifest
+.mcp.json                    declares the MCP server
 bin/shortlist                the command, on PATH while the plugin is enabled
 skills/                      when Claude should reach for it
+mcp/server.mjs               MCP server, no runtime dependencies
+mcp/app.html                 the panel, generated and self-contained
+mcp/ui.js  mcp/ui.css        panel source
+mcp/build-view.mjs           vendors the ext-apps bundle into app.html
+mcp/preview.mjs              renders the panel against a stub host, for development
 data/catalogue.json          the shipped snapshot
 data/catalogue-rejected.json every exclusion and why
 build/                       regenerates the snapshot
 ```
+
+`app.html` is committed because the server reads it at runtime. Rebuild it with
+`npm i @modelcontextprotocol/ext-apps && node mcp/build-view.mjs`. It inlines the client
+bundle rather than fetching one, because the iframe is sandboxed and nothing external
+loads.
+
+The panel has been checked against a stub host with `node mcp/preview.mjs`, which
+verifies the layout, search and category filtering. It has not yet been watched rendering
+inside a real Claude host.
 
 MIT.
