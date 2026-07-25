@@ -55,13 +55,37 @@ const installed = () => {
   }).sort((a, b) => a.name.localeCompare(b.name));
 };
 
+const SEEN = path.join(os.homedir(), ".claude", "shortlist", "seen.json");
+
+const newNames = (() => {
+  let cached = null;
+  return () => {
+    if (cached) return cached;
+    const current = PLUGINS.map(p => p.name);
+    let previous = null;
+    try { previous = JSON.parse(fs.readFileSync(SEEN, "utf8")).names; } catch {}
+    try {
+      fs.mkdirSync(path.dirname(SEEN), { recursive: true });
+      fs.writeFileSync(SEEN, JSON.stringify({ names: current, at: new Date().toISOString() }));
+    } catch {}
+    if (!Array.isArray(previous)) return (cached = new Set());
+    const known = new Set(previous);
+    const fresh = current.filter(n => !known.has(n));
+    return (cached = new Set(fresh.length === current.length ? [] : fresh));
+  };
+})();
+
 const categories = () => {
   const t = {};
   for (const p of PLUGINS) for (const c of p.categories) t[c] = (t[c] || 0) + 1;
   return Object.entries(t).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count }));
 };
 
-function query({ search = "", category = "", minStars = 0, limit = 60 } = {}) {
+function query({ search = "", category = "", minStars = 0, filter = "all", limit = 60 } = {}) {
+  const fresh = newNames();
+  const here = new Set(installed().filter(p => p.marketplace === MARKETPLACE).map(p => p.name));
+  const enabled = new Set(installed().filter(p => p.marketplace === MARKETPLACE && p.enabled).map(p => p.name));
+
   const terms = String(search).toLowerCase().split(/\s+/).filter(Boolean);
   let rows = PLUGINS;
   if (category) rows = rows.filter(p => p.categories.includes(category));
@@ -72,9 +96,27 @@ function query({ search = "", category = "", minStars = 0, limit = 60 } = {}) {
       return terms.every(t => hay.includes(t));
     });
   }
+
+  const counts = {
+    all: rows.length,
+    new: rows.filter(p => fresh.has(p.name)).length,
+    installed: rows.filter(p => here.has(p.name)).length,
+    enabled: rows.filter(p => enabled.has(p.name)).length,
+  };
+  counts.disabled = counts.installed - counts.enabled;
+
+  if (filter === "new") rows = rows.filter(p => fresh.has(p.name));
+  else if (filter === "installed") rows = rows.filter(p => here.has(p.name));
+  else if (filter === "enabled") rows = rows.filter(p => enabled.has(p.name));
+  else if (filter === "disabled") rows = rows.filter(p => here.has(p.name) && !enabled.has(p.name));
+
   const sorted = [...rows].sort((a, b) => b.stars - a.stars || a.name.localeCompare(b.name));
-  const page = sorted.slice(0, limit).map(p => CHECKS[p.name] ? { ...p, fails: CHECKS[p.name] } : p);
-  return { total: rows.length, plugins: page };
+  const page = sorted.slice(0, limit).map(p => ({
+    ...p,
+    ...(CHECKS[p.name] ? { fails: CHECKS[p.name] } : {}),
+    ...(fresh.has(p.name) ? { new: true } : {}),
+  }));
+  return { total: rows.length, plugins: page, counts };
 }
 
 const TOOL = {
@@ -89,6 +131,7 @@ const TOOL = {
     properties: {
       search: { type: "string", description: "words to match against name, description and category" },
       category: { type: "string", description: "restrict to one category" },
+      filter: { type: "string", enum: ["all", "new", "installed", "enabled", "disabled"], description: "restrict to new, installed, enabled or disabled entries" },
       minStars: { type: "number", description: "minimum star count" },
     },
   },

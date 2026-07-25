@@ -27,6 +27,13 @@ const readJson = (...parts) => {
   catch { return null; }
 };
 
+const seen = readJson("shortlist", "seen.json")?.names;
+if (Array.isArray(seen)) {
+  const known = new Set(seen);
+  const fresh = catalogue.plugins.filter(p => !known.has(p.name));
+  if (fresh.length < catalogue.plugins.length) for (const p of fresh) p.new = true;
+}
+
 const installedState = readJson("plugins", "installed_plugins.json");
 const enabledState = readJson("settings.json")?.enabledPlugins ?? {};
 const installed = Object.entries(installedState?.plugins ?? {}).map(([id, versions]) => {
@@ -40,6 +47,15 @@ const marketplace = {
   marketplaceSource: "anthropics/claude-plugins-community",
   marketplaceReady: process.argv.includes("--marketplace-ready"),
   installed,
+};
+
+const here = new Set(installed.filter(p => p.marketplace === marketplace.marketplace).map(p => p.name));
+const initialCounts = {
+  all: catalogue.plugins.length,
+  new: catalogue.plugins.filter(p => p.new).length,
+  installed: catalogue.plugins.filter(p => here.has(p.name)).length,
+  enabled: catalogue.plugins.filter(p => here.has(p.name)).length,
+  disabled: 0,
 };
 
 const stub = `
@@ -61,17 +77,31 @@ globalThis.__ext = {
     }
     async connect() {
       setTimeout(() => this.ontoolresult?.({
-        structuredContent: ${JSON.stringify({ total: catalogue.plugins.length, plugins, categories, ...marketplace })}
+        structuredContent: ${JSON.stringify({ total: catalogue.plugins.length, plugins, categories, counts: initialCounts, ...marketplace })}
       }), 0);
     }
     async callServerTool({ arguments: a }) {
       const all = ${JSON.stringify(catalogue.plugins)};
+      const info = ${JSON.stringify(marketplace)};
+      const here = new Set(info.installed.filter(p => p.marketplace === info.marketplace).map(p => p.name));
+      const on = new Set(info.installed.filter(p => p.marketplace === info.marketplace && p.enabled).map(p => p.name));
       const terms = (a.search || "").toLowerCase().split(/\\s+/).filter(Boolean);
       let rows = all;
       if (a.category) rows = rows.filter(p => p.categories.includes(a.category));
       if (terms.length) rows = rows.filter(p => terms.every(t =>
         (p.name + " " + p.description + " " + p.categories.join(" ")).toLowerCase().includes(t)));
-      return { structuredContent: { total: rows.length, plugins: rows.slice(0, 60), categories: ${JSON.stringify(categories)}, ...${JSON.stringify(marketplace)} } };
+      const counts = {
+        all: rows.length,
+        new: rows.filter(p => p.new).length,
+        installed: rows.filter(p => here.has(p.name)).length,
+        enabled: rows.filter(p => on.has(p.name)).length,
+      };
+      counts.disabled = counts.installed - counts.enabled;
+      if (a.filter === "new") rows = rows.filter(p => p.new);
+      else if (a.filter === "installed") rows = rows.filter(p => here.has(p.name));
+      else if (a.filter === "enabled") rows = rows.filter(p => on.has(p.name));
+      else if (a.filter === "disabled") rows = rows.filter(p => here.has(p.name) && !on.has(p.name));
+      return { structuredContent: { total: rows.length, plugins: rows.slice(0, 60), counts, categories: ${JSON.stringify(categories)}, ...info } };
     }
     async openLink() {}
   },

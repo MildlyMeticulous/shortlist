@@ -20,8 +20,10 @@ const when = at => {
 
 function renderInstalled() {
   const rows = state.installed ?? [];
-  const shown = state.installedFilter === "enabled" ? rows.filter(p => p.enabled)
-    : state.installedFilter === "disabled" ? rows.filter(p => !p.enabled)
+  const active = state.installedFilter ?? "all";
+  const shown = active === "enabled" ? rows.filter(p => p.enabled)
+    : active === "disabled" ? rows.filter(p => !p.enabled)
+    : active === "new" ? rows.filter(p => isNew(p.installedAt))
     : rows;
 
   if (!rows.length) {
@@ -42,14 +44,29 @@ function renderInstalled() {
       </div>
     </article>`).join("");
 
-  const counts = { all: rows.length, enabled: rows.filter(p => p.enabled).length };
+  const counts = {
+    all: rows.length,
+    enabled: rows.filter(p => p.enabled).length,
+    new: rows.filter(p => isNew(p.installedAt)).length,
+  };
   counts.disabled = counts.all - counts.enabled;
-  const filters = ["all", "enabled", "disabled"].map(f =>
-    `<button class="filter" data-filter="${f}" aria-pressed="${(state.installedFilter ?? "all") === f}">${f} ${counts[f]}</button>`).join("");
+  const filters = ["all", "enabled", "disabled", "new"].map(f =>
+    `<button class="filter" data-filter="${f}" aria-pressed="${active === f}">${f}<span>${counts[f]}</span></button>`).join("");
 
-  return `<div class="bar">${filters}</div>
-    ${shown.length ? `<div class="grid">${items}</div>` : `<div class="empty"><strong>None ${esc(state.installedFilter)}</strong></div>`}
+  return `<div class="filters">${filters}</div>
+    ${shown.length ? `<div class="grid">${items}</div>` : `<div class="empty"><strong>None ${esc(active)}</strong></div>`}
     <p class="note">Read from ~/.claude/plugins. Enable and disable with /plugin.</p>`;
+}
+
+const FILTERS = ["all", "new", "installed", "enabled", "disabled"];
+
+function renderFilters() {
+  const counts = state.counts ?? {};
+  const active = state.filter ?? "all";
+  return FILTERS
+    .filter(f => f === "all" || f === active || counts[f])
+    .map(f => `<button class="filter" data-filter="${f}" aria-pressed="${active === f}">${f}<span>${counts[f] ?? 0}</span></button>`)
+    .join("");
 }
 
 function render() {
@@ -66,6 +83,7 @@ function render() {
     <article class="item">
       <div class="top">
         <h3 class="name">${esc(p.name)}</h3>
+        ${p.new ? `<span class="badge new">new</span>` : ""}
         ${p.fails ? `<span class="fails" title="${esc(p.fails)}">won't load</span>` : ""}
         <span class="stars" title="GitHub stars. Most of the catalogue has very few.">${stars(p.stars)} ★</span>
         ${have.has(p.name)
@@ -81,15 +99,13 @@ function render() {
     </article>`).join("");
 
   const browsing = state.view !== "installed";
-  const tabs = `
-    <div class="tabs">
-      <button class="tab" data-view="browse" aria-pressed="${browsing}">Browse</button>
-      <button class="tab" data-view="installed" aria-pressed="${!browsing}">Installed ${(state.installed ?? []).length || ""}</button>
-    </div>`;
 
   root.innerHTML = `
     <aside>
-      ${tabs}
+      <nav>
+        <button class="nav" data-view="browse" aria-pressed="${browsing}"><span>Browse</span></button>
+        <button class="nav" data-view="installed" aria-pressed="${!browsing}"><span>Installed</span><span>${(state.installed ?? []).length || ""}</span></button>
+      </nav>
       <h2>Categories</h2>
       <button class="cat all" data-cat="" aria-pressed="${!category}"
               aria-label="All categories, ${state.allCount ?? ""} plugins"><span>All</span><span>${state.allCount ?? ""}</span></button>
@@ -98,13 +114,13 @@ function render() {
     <main>
       ${browsing ? `
       <div class="bar">
-        <input type="search" placeholder="Search ${state.allCount ?? ""} plugins" value="${esc(search)}" ${busy ? "disabled" : ""}>
-        <span class="count">${total}${plugins.length < total ? ` · ${plugins.length} shown` : ""}</span>
+        <input type="search" placeholder="Search ${state.allCount ?? ""} skills and plugins" value="${esc(search)}" ${busy ? "disabled" : ""}>
+        <span class="count">${total} result${total === 1 ? "" : "s"}</span>
       </div>
+      <div class="filters">${renderFilters()}</div>
       ${plugins.length
-        ? `<div class="grid">${items}</div>`
-        : `<div class="empty"><strong>No matches</strong>Try fewer words, or pick a category.</div>`}
-      <p class="note">Filtered from anthropics/claude-plugins-community.</p>`
+        ? `<div class="grid">${items}</div>${plugins.length < total ? `<p class="note">Showing the top ${plugins.length}. Narrow it with a search or a category.</p>` : `<p class="note">Filtered from anthropics/claude-plugins-community.</p>`}`
+        : `<div class="empty"><strong>No matches</strong>Try fewer words, or pick a category.</div>`}`
       : renderInstalled()}
     </main>`;
 }
@@ -116,7 +132,7 @@ async function requery(patch) {
   try {
     const res = await app.callServerTool({
       name: "browse_plugins",
-      arguments: { search: state.search, category: state.category },
+      arguments: { search: state.search, category: state.category, filter: state.filter ?? "all" },
     });
     absorb(res);
   } catch (e) {
@@ -138,7 +154,8 @@ function absorb(result) {
   if (data.marketplaceSource) state.marketplaceSource = data.marketplaceSource;
   if (data.marketplaceReady !== undefined) state.marketplaceReady = data.marketplaceReady;
   if (data.installed) state.installed = data.installed;
-  if (!state.category && !state.search) state.allCount = state.total;
+  if (data.counts) state.counts = data.counts;
+  if (!state.category && !state.search && (state.filter ?? "all") === "all") state.allCount = state.total;
 }
 
 root.addEventListener("click", e => {
@@ -146,7 +163,10 @@ root.addEventListener("click", e => {
   if (tab) { state.view = tab.dataset.view; return void render(); }
 
   const filter = e.target.closest("[data-filter]");
-  if (filter) { state.installedFilter = filter.dataset.filter; return void render(); }
+  if (filter) {
+    if (state.view === "installed") { state.installedFilter = filter.dataset.filter; return void render(); }
+    return void requery({ filter: filter.dataset.filter });
+  }
 
   const cat = e.target.closest("[data-cat]");
   if (cat) { state.view = "browse"; return void requery({ category: cat.dataset.cat }); }

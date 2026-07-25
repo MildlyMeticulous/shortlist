@@ -31,7 +31,7 @@ body {
   color: var(--fg);
   background: transparent;
 }
-#root { display: grid; grid-template-columns: 190px 1fr; gap: 16px; padding: 4px; }
+#root { display: grid; grid-template-columns: 200px 1fr; gap: 20px; padding: 4px; }
 @media (max-width: 620px) { #root { grid-template-columns: 1fr; } aside { display: none; } }
 
 aside { border-right: 1px solid var(--line); padding-right: 12px; position: sticky; top: 0; align-self: start; }
@@ -69,13 +69,17 @@ button.copy:hover { color: var(--fg); border-color: var(--muted); }
 @media (hover: none) { button.copy { opacity: 1; } }
 .fallback { margin-left: auto; font-size: 11px; color: var(--muted); user-select: all; white-space: pre; }
 
-.tabs { display: flex; gap: 4px; margin-bottom: 14px; }
-.tab { flex: 1; font: inherit; font-size: 12px; padding: 5px 8px; border: 1px solid var(--line); background: none; color: var(--muted); border-radius: 6px; cursor: pointer; }
-.tab:hover { color: var(--fg); }
-.tab[aria-pressed="true"] { background: var(--chip); color: var(--fg); font-weight: 600; }
-.filter { font: inherit; font-size: 12px; padding: 4px 10px; border: 1px solid var(--line); background: none; color: var(--muted); border-radius: 20px; cursor: pointer; }
-.filter:hover { color: var(--fg); }
-.filter[aria-pressed="true"] { background: var(--chip); color: var(--fg); }
+nav { display: grid; gap: 2px; margin-bottom: 18px; }
+.nav { display: flex; justify-content: space-between; gap: 8px; width: 100%; text-align: left; font: inherit; padding: 7px; border: 0; border-radius: 6px; background: none; color: var(--muted); cursor: pointer; }
+.nav:hover { background: var(--chip); color: var(--fg); }
+.nav[aria-pressed="true"] { background: var(--chip); color: var(--fg); font-weight: 600; }
+.nav span:last-child { font-variant-numeric: tabular-nums; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.filter { display: inline-flex; gap: 7px; align-items: center; font: inherit; font-size: 12px; padding: 4px 11px; border: 1px solid var(--line); background: none; color: var(--muted); border-radius: 20px; cursor: pointer; }
+.filter span { font-variant-numeric: tabular-nums; opacity: .75; }
+.filter:hover { color: var(--fg); border-color: var(--muted); }
+.filter[aria-pressed="true"] { background: var(--chip); color: var(--fg); border-color: transparent; }
 .badge { margin-left: auto; font-size: 11px; padding: 1px 8px; border-radius: 20px; border: 1px solid var(--line); color: var(--muted); }
 .badge.on { color: var(--accent); border-color: var(--accent); }
 .badge.new { margin-left: 0; color: var(--fg); }
