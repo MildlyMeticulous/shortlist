@@ -4,7 +4,8 @@ export const CATEGORIES = [
   "Testing", "Code review", "Security", "Documentation", "Git", "Database",
   "Frontend", "Backend", "Infrastructure", "Cloud", "Data", "Agents",
   "Language support", "Productivity", "Project management", "Search",
-  "Design", "Mobile", "Web3", "Integrations", "Utility",
+  "Design", "Mobile", "Web3", "Integrations", "Writing", "Research",
+  "Business", "Architecture", "Utility",
 ];
 
 // Ordered: the first rule that matches wins, so put the specific ones first.
@@ -13,7 +14,7 @@ const RULES = [
   ["Web3", /\b(web3|solidity|ethereum|erc-?(20|721)|blockchain|smart contract|defi|nft|solana|aptos|dapp|evm|metamask|on-?chain|crypto ?wallet)\b/i],
   ["Security", /\b(security|vulnerab|pentest|owasp|cve|secret scan|sast|dast|threat model|audit(ing)? code|compliance)\b/i],
   ["Testing", /\b(test(s|ing)?|tdd|bdd|jest|pytest|vitest|playwright|cypress|coverage|e2e|unit test)\b/i],
-  ["Code review", /\b(code review|reviewer|pull request review|pr review|lint(er|ing)?|refactor|code quality|static analysis)\b/i],
+  ["Code review", /\b(code review(s|er)?|reviewing code|pull request review|pr review|lint(er|ing)?|refactor(ing)?|code quality|static analysis|code smell)\b/i],
   ["Language support", /\b(lsp|language server|type ?check|intellisense|autocomplete|syntax)\b/i],
   ["Database", /\b(database|sql|postgres|mysql|sqlite|mongo|redis|prisma|orm|migration|schema)\b/i],
   ["Cloud", /\b(aws|azure|gcp|google cloud|cloudflare|s3|lambda|serverless)\b/i],
@@ -27,7 +28,12 @@ const RULES = [
   ["Design", /\b(design system|figma|ux|accessibility|a11y|wcag|typography|colou?r palette|brand)\b/i],
   ["Project management", /\b(jira|linear|asana|trello|sprint|backlog|ticket|issue track|roadmap|standup)\b/i],
   ["Search", /\b(search|index(ing)?|rag|retrieval|embedding|vector|semantic search)\b/i],
-  ["Agents", /\b(agent|subagent|orchestrat|multi-?agent|swarm|delegate|workflow engine|skill(s)? for)\b/i],
+  ["Architecture", /\b(architect(ure|ural)?|design pattern|system design|adr|monorepo|modulari[sz]|domain-driven|ddd)\b/i],
+  ["Research", /\b(research(er|ing)?|literature|citation|survey|competitive analysis|market research|fact.?check)\b/i],
+  ["Business", /\b(market(ing)?|sales|revenue|pricing|invoice|billing|crm|customer|business|startup|growth|seo)\b/i],
+  ["Writing", /\b(writ(ing|er)|copywrit|blog|newsletter|content (creation|strategy|writing)|editor(ial)?|proofread|tone of voice|translat)\b/i],
+  // Not "workflow": it appears in 4 descriptions in 10 and swamps the category.
+  ["Agents", /\b(agents?|sub-?agents?|orchestrat(e|ion|or)?|multi-?agent|swarm|delegat(e|ion))\b/i],
   ["Integrations", /\b(slack|discord|notion|github app|gitlab|shopify|stripe|salesforce|hubspot|zapier|mcp server)\b/i],
   ["Productivity", /\b(productiv|memory|context|note(s|taking)?|todo|reminder|session|handoff|checkpoint)\b/i],
 ];

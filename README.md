@@ -46,23 +46,23 @@ These are checkable facts, not judgements. A plugin is not excluded for being ba
 ## Categories
 
 Upstream entries carry no category, although `marketplace.json` has supported `category`,
-`tags` and `keywords` all along. This assigns one from a fixed vocabulary of 21, by keyword
+`tags` and `keywords` all along. This assigns one from a fixed vocabulary of 25, by keyword
 rules over each name and description, in `build/categories.mjs`.
 
 ```
-  414  Productivity      163  Security          48  Data
-  394  Agents            147  Integrations      42  Mobile
-  388  Utility           130  Database          42  Cloud
-  221  Backend           107  Git               40  Project management
-  190  Testing           105  Code review       30  Language support
-  179  Search             94  Documentation     19  Web3
-  175  Infrastructure     54  Frontend
-                          53  Design
+  561  Agents                147  Integrations           53  Design
+  414  Productivity          130  Database               48  Data
+  275  Utility               122  Architecture           42  Mobile
+  221  Backend               107  Git                    42  Cloud
+  190  Testing               105  Code review            40  Project management
+  179  Search                 95  Writing                30  Language support
+  175  Infrastructure         94  Research               21  Web3
+  163  Security               94  Documentation
+  151  Business               54  Frontend
 ```
 
 The vocabulary is closed on purpose. Free-text tags are why the upstream list cannot be
-browsed. `Utility` is the fallback where no rule matched, currently 23% of entries, which
-is the obvious thing to improve next.
+browsed. `Utility` is the fallback where no rule matched, currently 17% of entries.
 
 ## What this does not claim
 
