@@ -1,5 +1,7 @@
 {
-  "devDependencies": {
-    "@modelcontextprotocol/ext-apps": "^1.7.5"
-  }
+  "name": "shortlist",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browse the Claude Code plugin catalogue from inside Claude Code.",
+  "license": "MIT"
 }
