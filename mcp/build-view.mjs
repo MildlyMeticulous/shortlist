@@ -1,7 +1,3 @@
-// Produces mcp/app.html: one self-contained file, because the host renders the view
-// in a sandboxed iframe where nothing external loads.
-//
-//   npm i @modelcontextprotocol/ext-apps && node mcp/build-view.mjs
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -19,8 +15,6 @@ const WANTED = ["App", "applyDocumentTheme", "applyHostStyleVariables", "applyHo
 
 let bundle = fs.readFileSync(BUNDLE, "utf8");
 
-// The bundle ends in a single `export{minified as PublicName,...}`. An inline module
-// cannot be imported from, so swap that statement for a global assignment.
 const tail = bundle.lastIndexOf("export{");
 if (tail < 0) throw new Error("no export statement found in bundle");
 const stmt = bundle.slice(tail);

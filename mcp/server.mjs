@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-// MCP stdio server for shortlist. Hand-rolled JSON-RPC so the plugin carries no
-// runtime dependencies; the view bundle is vendored separately at build time.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -13,7 +11,6 @@ const RESOURCE_URI = "ui://shortlist/app.html";
 const catalogue = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "catalogue.json"), "utf8"));
 const PLUGINS = catalogue.plugins;
 
-// Optional, written by build/validate.mjs. Absent on a fresh clone until it is run.
 const CHECKS = {};
 try {
   const v = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "validation.json"), "utf8"));
@@ -21,7 +18,7 @@ try {
     const errors = r.problems.filter(p => p.level === "error");
     if (errors.length) CHECKS[r.name] = errors[0].code;
   }
-} catch { /* not built yet */ }
+} catch {}
 
 const categories = () => {
   const t = {};

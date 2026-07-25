@@ -3,11 +3,11 @@
  "checked": 2269,
  "ok": 1919,
  "codes": {
+  "manifest-name-mismatch": 435,
+  "skill-no-frontmatter": 85,
   "no-manifest": 162,
   "entry-points-above-the-plugin": 111,
   "mcp-no-servers": 89,
-  "manifest-name-mismatch": 435,
-  "skill-no-frontmatter": 85,
   "mcp-unanchored-path": 27,
   "hook-unknown-event": 5,
   "no-capabilities": 125,

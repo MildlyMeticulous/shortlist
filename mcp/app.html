@@ -9,8 +9,6 @@
   --accent: #b8593a;
   --chip: #f2f2f0;
 }
-/* The body is transparent and the first paint lands before the host answers, so
-   without this the panel opens as near-black text on the host's own surface. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]):not(.light) {
     --fg: #ececec;
@@ -62,7 +60,6 @@ input[type="search"]:focus { outline: 2px solid var(--accent); outline-offset: -
 .desc { color: var(--muted); margin: 5px 0 9px; }
 .meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; }
 .chip { background: var(--chip); border-radius: 20px; padding: 2px 9px; color: var(--muted); }
-/* Outlined rather than coloured, so it still reads without colour vision. */
 .fails { font-size: 11px; padding: 1px 7px; border-radius: 20px; color: var(--accent); border: 1px solid var(--accent); cursor: help; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -72,7 +69,6 @@ button.copy {
 }
 .item:hover .copy, .item:focus-within .copy, .copy:focus-visible { opacity: 1; }
 button.copy:hover { color: var(--fg); border-color: var(--muted); }
-/* Touch has no hover, so the button would be invisible but still tappable. */
 @media (hover: none) { button.copy { opacity: 1; } }
 .empty { display: grid; gap: 3px; color: var(--muted); padding: 40px 4px; justify-items: start; }
 .empty strong { color: var(--fg); font-size: 15px; }
@@ -172,7 +168,6 @@ const stars = n => (n >= 1000 ? (n / 1000).toFixed(1) + "k" : String(n));
 function render() {
   const { plugins, categories, total, category, search } = state;
 
-  // Without an explicit label the two spans are read as one run, "Agents561".
   const cats = categories.map(c =>
     `<button class="cat" data-cat="${esc(c.name)}" aria-pressed="${c.name === category}"
              aria-label="${esc(c.name)}, ${c.count} plugins">
@@ -239,7 +234,6 @@ function absorb(result) {
   state.plugins = data.plugins ?? [];
   state.total = data.total ?? state.plugins.length;
   if (data.categories) state.categories = data.categories;
-  // Category counts overlap, so they cannot be summed for the total.
   if (!state.category && !state.search) state.allCount = state.total;
 }
 
@@ -277,8 +271,6 @@ app.onhostcontextchanged = ctx => { applyDocumentTheme?.(ctx); applyHostStyleVar
 
 const theme = ctx => { applyDocumentTheme?.(ctx); applyHostStyleVariables?.(ctx); applyHostFonts?.(ctx); };
 
-// Draw before connecting. Awaiting the handshake first leaves a permanently blank
-// panel on any host that never answers.
 render();
 
 app.connect().then(

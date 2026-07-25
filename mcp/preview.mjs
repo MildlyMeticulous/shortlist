@@ -1,5 +1,3 @@
-// Renders the view against a stub host and real catalogue data, so the layout can be
-// checked without a Claude host. Writes mcp/preview.html, which is not shipped.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -8,7 +6,6 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..");
 const catalogue = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "catalogue.json"), "utf8"));
 
-// Join the load checks in, so the preview exercises the failure marker too.
 try {
   const v = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "validation.json"), "utf8"));
   const fails = {};
@@ -17,7 +14,7 @@ try {
     if (e) fails[r.name] = e.code;
   }
   for (const p of catalogue.plugins) if (fails[p.name]) p.fails = fails[p.name];
-} catch { /* not built yet */ }
+} catch {}
 
 const tally = {};
 for (const p of catalogue.plugins) for (const c of p.categories) tally[c] = (tally[c] || 0) + 1;

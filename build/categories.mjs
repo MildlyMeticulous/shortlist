@@ -1,5 +1,3 @@
-// A closed vocabulary, the way Vencord's PluginTags is closed. Free-text tags are
-// why the upstream catalogue cannot be browsed.
 export const CATEGORIES = [
   "Testing", "Code review", "Security", "Documentation", "Git", "Database",
   "Frontend", "Backend", "Infrastructure", "Cloud", "Data", "Agents",
@@ -8,9 +6,7 @@ export const CATEGORIES = [
   "Business", "Architecture", "Utility",
 ];
 
-// Ordered: the first rule that matches wins, so put the specific ones first.
 const RULES = [
-  // "wallet" on its own hits database auth docs, so it needs crypto context.
   ["Web3", /\b(web3|solidity|ethereum|erc-?(20|721)|blockchain|smart contract|defi|nft|solana|aptos|dapp|evm|metamask|on-?chain|crypto ?wallet)\b/i],
   ["Security", /\b(security|vulnerab|pentest|owasp|cve|secret scan|sast|dast|threat model|audit(ing)? code|compliance)\b/i],
   ["Testing", /\b(test(s|ing)?|tdd|bdd|jest|pytest|vitest|playwright|cypress|coverage|e2e|unit test)\b/i],
@@ -32,7 +28,6 @@ const RULES = [
   ["Research", /\b(research(er|ing)?|literature|citation|survey|competitive analysis|market research|fact.?check)\b/i],
   ["Business", /\b(market(ing)?|sales|revenue|pricing|invoice|billing|crm|customer|business|startup|growth|seo)\b/i],
   ["Writing", /\b(writ(ing|er)|copywrit|blog|newsletter|content (creation|strategy|writing)|editor(ial)?|proofread|tone of voice|translat)\b/i],
-  // Not "workflow": it appears in 4 descriptions in 10 and swamps the category.
   ["Agents", /\b(agents?|sub-?agents?|orchestrat(e|ion|or)?|multi-?agent|swarm|delegat(e|ion))\b/i],
   ["Integrations", /\b(slack|discord|notion|github app|gitlab|shopify|stripe|salesforce|hubspot|zapier|mcp server)\b/i],
   ["Productivity", /\b(productiv|memory|context|note(s|taking)?|todo|reminder|session|handoff|checkpoint)\b/i],

@@ -16,14 +16,13 @@ try {
 }
 const ALL = catalogue.plugins;
 
-// Optional: written by build/validate.mjs. The catalogue still works without it.
 let CHECKS = {};
 let checkedOn = null;
 try {
   const v = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "validation.json"), "utf8"));
   checkedOn = v.built;
   for (const r of v.results) CHECKS[r.name] = r;
-} catch { /* not built yet */ }
+} catch {}
 
 const errorsFor = name => (CHECKS[name]?.problems ?? []).filter(p => p.level === "error");
 const loadsCleanly = name => !CHECKS[name] || errorsFor(name).length === 0;

@@ -1,7 +1,3 @@
-// Joins the upstream catalogue with repository metadata, applies the hard gates,
-// and writes the rows the shipped CLI reads.
-//
-//   node build/build-catalogue.mjs <plugins.json> <repocache.json> [out]
 import fs from "node:fs";
 import { classifyAll } from "./categories.mjs";
 
@@ -42,8 +38,6 @@ for (const p of plugins) {
   });
 }
 
-// One repo can publish several plugins. Collapsing them keeps a single entry from
-// crowding out everything else in a category listing.
 const byRepo = {};
 for (const k of kept) (byRepo[k.repo] ??= []).push(k);
 for (const [repo, group] of Object.entries(byRepo))

@@ -10,7 +10,6 @@ const stars = n => (n >= 1000 ? (n / 1000).toFixed(1) + "k" : String(n));
 function render() {
   const { plugins, categories, total, category, search } = state;
 
-  // Without an explicit label the two spans are read as one run, "Agents561".
   const cats = categories.map(c =>
     `<button class="cat" data-cat="${esc(c.name)}" aria-pressed="${c.name === category}"
              aria-label="${esc(c.name)}, ${c.count} plugins">
@@ -77,7 +76,6 @@ function absorb(result) {
   state.plugins = data.plugins ?? [];
   state.total = data.total ?? state.plugins.length;
   if (data.categories) state.categories = data.categories;
-  // Category counts overlap, so they cannot be summed for the total.
   if (!state.category && !state.search) state.allCount = state.total;
 }
 
@@ -115,8 +113,6 @@ app.onhostcontextchanged = ctx => { applyDocumentTheme?.(ctx); applyHostStyleVar
 
 const theme = ctx => { applyDocumentTheme?.(ctx); applyHostStyleVariables?.(ctx); applyHostFonts?.(ctx); };
 
-// Draw before connecting. Awaiting the handshake first leaves a permanently blank
-// panel on any host that never answers.
 render();
 
 app.connect().then(
