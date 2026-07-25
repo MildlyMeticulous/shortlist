@@ -8,15 +8,26 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;"
 const stars = n => (n >= 1000 ? (n / 1000).toFixed(1) + "k" : String(n));
 
 const NEW_FOR_DAYS = 7;
-const installedHere = () => new Set((state.installed ?? [])
-  .filter(p => p.marketplace === (state.marketplace ?? "claude-community"))
-  .map(p => p.name));
+const marketplace = () => state.marketplace ?? "claude-community";
+const installedHere = () => new Map((state.installed ?? [])
+  .filter(p => p.marketplace === marketplace())
+  .map(p => [p.name, p]));
 const isNew = at => at && Date.now() - Date.parse(at) < NEW_FOR_DAYS * 864e5;
 const when = at => {
   if (!at) return "";
   const days = Math.floor((Date.now() - Date.parse(at)) / 864e5);
   return days < 1 ? "today" : days === 1 ? "yesterday" : `${days} days ago`;
 };
+
+function switchFor(id, on, name) {
+  const failed = (state.failed ?? {})[id];
+  const pending = (state.pending ?? {})[id];
+  const marker = failed
+    ? `<code class="fallback" title="the host would not run it, paste this instead">${esc(failed)}</code>`
+    : pending ? `<span class="badge pending">restart to apply</span>` : "";
+  return `${marker}<button class="switch" role="switch" data-toggle="${esc(id)}"
+    aria-checked="${on}" aria-label="${on ? "Turn off" : "Turn on"} ${esc(name)}"></button>`;
+}
 
 function renderInstalled() {
   const rows = state.installed ?? [];
@@ -29,18 +40,12 @@ function renderInstalled() {
   if (!rows.length) {
     return `<div class="empty"><strong>Nothing installed</strong>Anything you install from Browse shows up here.</div>`;
   }
-  const pending = state.pending ?? {};
-  const failed = state.failed ?? {};
   const items = shown.map(p => `
     <article class="item">
       <div class="top">
         <h3 class="name">${esc(p.name)}</h3>
         ${isNew(p.installedAt) ? `<span class="badge new">new</span>` : ""}
-        ${failed[p.id]
-          ? `<code class="fallback" title="the host would not run it, paste this instead">${esc(failed[p.id])}</code>`
-          : pending[p.id] ? `<span class="badge pending">restart to apply</span>` : ""}
-        <button class="switch" role="switch" data-toggle="${esc(p.id)}"
-                aria-checked="${p.enabled}" aria-label="${p.enabled ? "Disable" : "Enable"} ${esc(p.name)}"></button>
+        ${switchFor(p.id, p.enabled, p.name)}
       </div>
       <div class="meta">
         <span class="chip">${esc(p.marketplace)}</span>
@@ -92,14 +97,13 @@ function render() {
         ${p.new ? `<span class="badge new">new</span>` : ""}
         ${p.fails ? `<span class="fails" title="${esc(p.fails)}">won't load</span>` : ""}
         <span class="stars" title="GitHub stars. Most of the catalogue has very few.">${stars(p.stars)} ★</span>
-        ${have.has(p.name)
-          ? `<span class="badge on">installed</span>`
-          : `<button class="copy" data-install="${esc(p.name)}">install</button>`}
+        ${switchFor(`${p.name}@${marketplace()}`, have.get(p.name)?.enabled === true, p.name)}
       </div>
       <p class="desc">${esc(p.description.slice(0, 170))}${p.description.length > 170 ? "…" : ""}</p>
       <div class="meta">
         ${p.categories.slice(0, 3).map(c => `<span class="chip">${esc(c)}</span>`).join("")}
         <span class="chip">${esc(p.license)}</span>
+        ${have.has(p.name) ? `<span class="chip">installed</span>` : ""}
         <a href="https://github.com/${esc(p.repo)}" data-repo="${esc(p.repo)}">${esc(p.repo)}</a>
       </div>
     </article>`).join("");
@@ -186,67 +190,44 @@ root.addEventListener("click", e => {
   const toggle = e.target.closest("[data-toggle]");
   if (toggle) return void setEnabled(toggle);
 
-  const button = e.target.closest("[data-install]");
-  if (button) return void install(button);
 });
 
 async function setEnabled(toggle) {
   const id = toggle.dataset.toggle;
   const row = (state.installed ?? []).find(p => p.id === id);
-  if (!row) return;
+  const wanted = !(row?.enabled === true);
 
-  const wanted = !row.enabled;
+  const commands = [];
+  if (!row) {
+    if (!state.marketplaceReady)
+      commands.push(`/plugin marketplace add ${state.marketplaceSource ?? "anthropics/claude-plugins-community"}`);
+    commands.push(`/plugin install ${id}`);
+  } else {
+    commands.push(`/plugin ${wanted ? "enable" : "disable"} ${id}`);
+  }
+
   const failed = { ...(state.failed ?? {}) };
   delete failed[id];
   toggle.disabled = true;
-  try {
-    const text = `/plugin ${wanted ? "enable" : "disable"} ${id}`;
-    const res = await app.sendMessage({ role: "user", content: [{ type: "text", text }] });
-    if (res?.isError) throw new Error("host rejected the message");
-    row.enabled = wanted;
-    state.pending = { ...(state.pending ?? {}), [id]: true };
-  } catch {
-    failed[id] = `/plugin ${wanted ? "enable" : "disable"} ${id}`;
-  }
-  state.failed = failed;
-  render();
-}
-
-async function install(button) {
-  const name = button.dataset.install;
-  const marketplace = state.marketplace ?? "claude-community";
-  const commands = [];
-  if (!state.marketplaceReady)
-    commands.push(`/plugin marketplace add ${state.marketplaceSource ?? "anthropics/claude-plugins-community"}`);
-  commands.push(`/plugin install ${name}@${marketplace}`);
-
-  const settle = (label, ms = 1600) => {
-    button.textContent = label;
-    setTimeout(() => { button.textContent = "install"; button.disabled = false; }, ms);
-  };
-
-  button.disabled = true;
-  button.textContent = "sending";
   try {
     for (const text of commands) {
       const res = await app.sendMessage({ role: "user", content: [{ type: "text", text }] });
       if (res?.isError) throw new Error("host rejected the message");
     }
-    state.marketplaceReady = true;
-    settle("sent");
-  } catch {
-    const cmd = commands.join("\n");
-    try {
-      await navigator.clipboard.writeText(cmd);
-      settle("copied, paste it", 2600);
-    } catch {
-      button.replaceWith(Object.assign(document.createElement("code"), {
-        className: "fallback",
-        textContent: cmd,
-      }));
+    if (row) row.enabled = wanted;
+    else {
+      const [name] = id.split("@");
+      state.installed = [...(state.installed ?? []), { id, name, marketplace: marketplace(), enabled: true, installedAt: new Date().toISOString() }];
+      state.marketplaceReady = true;
     }
+    state.pending = { ...(state.pending ?? {}), [id]: true };
+  } catch {
+    failed[id] = commands.join("\n");
   }
+  state.failed = failed;
+  render();
 }
+
 
 let typing;
 root.addEventListener("input", e => {
