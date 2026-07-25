@@ -1,0 +1,10 @@
+{
+  "name": "shortlist",
+  "description": "Browse and search the Claude Code plugin catalogue from inside Claude Code, filtered and grouped into categories.",
+  "version": "0.1.0",
+  "author": { "name": "MildlyMeticulous" },
+  "homepage": "https://github.com/MildlyMeticulous/shortlist",
+  "repository": "https://github.com/MildlyMeticulous/shortlist",
+  "license": "MIT",
+  "keywords": ["plugins", "marketplace", "discovery", "catalogue", "search"]
+}

@@ -1,0 +1,151 @@
+#!/usr/bin/env node
+"use strict";
+
+const fs = require("fs");
+const path = require("path");
+
+const ROOT = path.resolve(__dirname, "..");
+const DATA = path.join(ROOT, "data", "catalogue.json");
+
+let catalogue;
+try {
+  catalogue = JSON.parse(fs.readFileSync(DATA, "utf8"));
+} catch {
+  console.error(`shortlist: cannot read ${DATA}`);
+  process.exit(1);
+}
+const ALL = catalogue.plugins;
+
+const HELP = `shortlist - browse a filtered Claude Code plugin catalogue
+
+  shortlist categories              every category and how many plugins are in it
+  shortlist browse <category>       plugins in a category, most-starred first
+  shortlist find <words...>         search names, descriptions and categories
+  shortlist show <name>             one plugin in full, with the install command
+  shortlist top [n]                 the n most-starred plugins (default 20)
+  shortlist random [n]              n plugins picked at random, for browsing
+
+Options
+  --limit <n>    cap the number of rows (default 20)
+  --min-stars <n>
+  --json         machine-readable
+
+Built from ${catalogue.source}. ${catalogue.counts.kept} of ${catalogue.counts.upstream}
+upstream entries survive the gates; the rest are listed in data/catalogue-rejected.json.
+`;
+
+const argv = process.argv.slice(2);
+const flag = (name, dflt) => {
+  const i = argv.indexOf(name);
+  if (i < 0) return dflt;
+  const v = argv[i + 1];
+  argv.splice(i, 2);
+  return v;
+};
+const bool = name => {
+  const i = argv.indexOf(name);
+  if (i < 0) return false;
+  argv.splice(i, 1);
+  return true;
+};
+
+const asJson = bool("--json");
+const limit = Number(flag("--limit", 20));
+const minStars = Number(flag("--min-stars", 0));
+const [cmd, ...rest] = argv;
+
+const byStars = (a, b) => b.stars - a.stars || a.name.localeCompare(b.name);
+const star = n => (n >= 1000 ? (n / 1000).toFixed(1) + "k" : String(n));
+
+function emit(rows, note) {
+  const shown = rows.filter(p => p.stars >= minStars).slice(0, limit);
+  if (asJson) return console.log(JSON.stringify(shown, null, 1));
+  if (!shown.length) return console.log("nothing matched.");
+  for (const p of shown) {
+    console.log(`${star(p.stars).padStart(6)}  ${p.name}`);
+    console.log(`        ${p.description.slice(0, 96)}`);
+    console.log(`        ${p.categories.join(", ")}  ${p.repo}  ${p.license}  ${p.pushed}`);
+  }
+  const total = rows.filter(p => p.stars >= minStars).length;
+  if (total > shown.length) console.log(`\n${shown.length} of ${total}. --limit ${total} for all.`);
+  if (note) console.log(`\n${note}`);
+}
+
+const norm = s => s.toLowerCase();
+
+switch (cmd) {
+  case "categories": {
+    const tally = {};
+    for (const p of ALL) for (const c of p.categories) tally[c] = (tally[c] || 0) + 1;
+    const rows = Object.entries(tally).sort((a, b) => b[1] - a[1]);
+    if (asJson) { console.log(JSON.stringify(Object.fromEntries(rows), null, 1)); break; }
+    for (const [c, n] of rows) console.log(`${String(n).padStart(5)}  ${c}`);
+    console.log(`\nshortlist browse "<category>" to list one.`);
+    break;
+  }
+  case "browse": {
+    const want = norm(rest.join(" "));
+    if (!want) { console.error("usage: shortlist browse <category>"); process.exit(2); }
+    const rows = ALL.filter(p => p.categories.some(c => norm(c) === want)).sort(byStars);
+    if (!rows.length) {
+      const known = [...new Set(ALL.flatMap(p => p.categories))].sort();
+      console.error(`no category "${rest.join(" ")}". known: ${known.join(", ")}`);
+      process.exit(2);
+    }
+    emit(rows);
+    break;
+  }
+  case "find": {
+    const terms = rest.map(norm).filter(Boolean);
+    if (!terms.length) { console.error("usage: shortlist find <words...>"); process.exit(2); }
+    const scored = [];
+    for (const p of ALL) {
+      const hay = norm(`${p.name} ${p.description} ${p.categories.join(" ")}`);
+      if (!terms.every(t => hay.includes(t))) continue;
+      const inName = terms.filter(t => norm(p.name).includes(t)).length;
+      scored.push({ p, rank: inName * 1000 + Math.log10(p.stars + 1) * 100 });
+    }
+    scored.sort((a, b) => b.rank - a.rank);
+    emit(scored.map(s => s.p));
+    break;
+  }
+  case "show": {
+    const want = norm(rest.join(" "));
+    const p = ALL.find(x => norm(x.name) === want) || ALL.find(x => norm(x.name).includes(want));
+    if (!p) { console.error(`no plugin matching "${rest.join(" ")}"`); process.exit(2); }
+    if (asJson) { console.log(JSON.stringify(p, null, 1)); break; }
+    console.log(`${p.name}\n`);
+    console.log(p.description.replace(/(.{1,88})(\s|$)/g, "$1\n").trim());
+    console.log(`\n  categories  ${p.categories.join(", ")}`);
+    console.log(`  repository  https://github.com/${p.repo}`);
+    console.log(`  stars       ${p.stars}   forks ${p.forks}`);
+    console.log(`  licence     ${p.license}`);
+    console.log(`  last push   ${p.pushed}`);
+    if (p.siblings) console.log(`  note        this repository publishes ${p.siblings} plugins`);
+    console.log(`\ninstall\n  /plugin marketplace add anthropics/claude-plugins-community`);
+    console.log(`  /plugin install ${p.name}@claude-community`);
+    break;
+  }
+  case "top": {
+    const n = Number(rest[0]);
+    emit([...ALL].sort(byStars).slice(0, Number.isFinite(n) && n > 0 ? n : limit));
+    break;
+  }
+  case "random": {
+    const n = Number(rest[0] || 10);
+    const pool = ALL.filter(p => p.stars >= minStars);
+    const out = [];
+    const seen = new Set();
+    for (let i = 0; i < n * 20 && out.length < n; i++) {
+      const idx = (i * 7919 + Date.now() % pool.length) % pool.length;
+      if (seen.has(idx)) continue;
+      seen.add(idx);
+      out.push(pool[idx]);
+    }
+    emit(out);
+    break;
+  }
+  default:
+    process.stdout.write(HELP);
+    if (cmd) process.exit(2);
+}

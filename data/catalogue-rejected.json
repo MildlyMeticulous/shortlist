@@ -1,0 +1,3087 @@
+[
+ {
+  "name": "10x-shopping",
+  "repo": "qressy/10x-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "42crunch-api-security-testing",
+  "repo": "42Crunch-AI/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "a11y-fixer",
+  "repo": "barnburner121/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "ab-testing",
+  "repo": "barnburner121/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "accelbyte-ai-plugins",
+  "repo": "AccelByte/ai-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "access-review",
+  "repo": "barnburner121/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "accessibility-audit",
+  "repo": "barnburner121/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "accessibility-test",
+  "repo": "barnburner121/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "accountsos",
+  "repo": "paulgosnell/accountsos-cowork-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "adr-creator",
+  "repo": "barnburner121/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "adup-ai-marketing-agent",
+  "repo": "Ad-Up-VC/adup-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "adversarial-spec",
+  "repo": "zscole/adversarial-spec",
+  "reason": "untouched for 180 days"
+ },
+ {
+  "name": "agent-blueprint-skills",
+  "repo": "agent-blueprint/agent-blueprint-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "agentforce-adlc",
+  "repo": "SalesforceAIResearch/agentforce-adlc",
+  "reason": "no license"
+ },
+ {
+  "name": "agentic-beta-testers",
+  "repo": "rjspence3/claude-beta-tester",
+  "reason": "no license"
+ },
+ {
+  "name": "agentic-security",
+  "repo": "Clear-Capabilities/agentic-security",
+  "reason": "no license"
+ },
+ {
+  "name": "agentmancy",
+  "repo": "vinngo/agentmancy",
+  "reason": "no license"
+ },
+ {
+  "name": "agentpowers",
+  "repo": "AgentPowers-AI/agentpowers-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "ai-devkit",
+  "repo": "codeaholicguy/ai-devkit",
+  "reason": "no license"
+ },
+ {
+  "name": "ai-integration-architect",
+  "repo": "pfbarros2/ai-integration-architect-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "ai-memory-reader",
+  "repo": "nvwalj/aimr-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "ai-operations-consultant",
+  "repo": "3rd-Brain/AI-Operations-Consultant",
+  "reason": "archived"
+ },
+ {
+  "name": "ai-skills-library",
+  "repo": "bob798/ai-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "aikido",
+  "repo": "AikidoSec/aikido-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "aio-design-system",
+  "repo": "aiocean/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "aio-watermill-kit",
+  "repo": "aiocean/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "alert-rules",
+  "repo": "barnburner121/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "alfred",
+  "repo": "DrakeCaraker/alfred",
+  "reason": "no license"
+ },
+ {
+  "name": "alias-gen",
+  "repo": "barnburner121/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "alley-oop",
+  "repo": "1azarus/alley-oop",
+  "reason": "no license"
+ },
+ {
+  "name": "amni",
+  "repo": "amni-app/amni-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "analyst-never-sleep",
+  "repo": "kmmz/analyst_never_sleep",
+  "reason": "no license"
+ },
+ {
+  "name": "andie",
+  "repo": "giggsoinc/andie",
+  "reason": "no license"
+ },
+ {
+  "name": "android-kotlin",
+  "repo": "barnburner121/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "angel-ai",
+  "repo": "ShayanShams8/AngelAI",
+  "reason": "no license"
+ },
+ {
+  "name": "animation-helper",
+  "repo": "barnburner121/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "ansible-playbook",
+  "repo": "barnburner121/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "anti-slop-ui",
+  "repo": "awaken7050dev/anti-slop-ui",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "api-cache-client",
+  "repo": "barnburner121/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "api-contract-forge",
+  "repo": "rumitdev/claude-api-contract-forge",
+  "reason": "no license"
+ },
+ {
+  "name": "api-forge",
+  "repo": "barnburner121/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "aport-guardrails",
+  "repo": "aporthq/aport-agent-guardrails",
+  "reason": "no license"
+ },
+ {
+  "name": "appstore-prep",
+  "repo": "Kevin-Wei-sudo/appstore-prep",
+  "reason": "no license"
+ },
+ {
+  "name": "aria",
+  "repo": "Patchline-AI/aria",
+  "reason": "no license"
+ },
+ {
+  "name": "aria-knowledge",
+  "repo": "mikeprasad/aria-knowledge",
+  "reason": "no license"
+ },
+ {
+  "name": "armo-ctrl",
+  "repo": "armosec/armoctl",
+  "reason": "no license"
+ },
+ {
+  "name": "arquestra",
+  "repo": "Apertura-AI/arquestra-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "artibot",
+  "repo": "Yoodaddy0311/artibot",
+  "reason": "no license"
+ },
+ {
+  "name": "asset-generator",
+  "repo": "Blueprint-Studio-AI/claude-code-asset-generator",
+  "reason": "no license"
+ },
+ {
+  "name": "attacca",
+  "repo": "adihebbalae/Attacca",
+  "reason": "no license"
+ },
+ {
+  "name": "attive",
+  "repo": "dpivot/attive-mcp-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "attune-lite",
+  "repo": "Smart-AI-Memory/attune-lite",
+  "reason": "archived"
+ },
+ {
+  "name": "audit-project",
+  "repo": "agent-sh/audit-project",
+  "reason": "no license"
+ },
+ {
+  "name": "audit-suite",
+  "repo": "Recusive/Orbit-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "aurora-inbox",
+  "repo": "aurorainbox/aurora-mcp-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "auto-log-your-claude-code-sessions-as-odoo-timesheets",
+  "repo": "sadeem-cloud/claude_odoo_timesheet_plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "autoresearch",
+  "repo": "pjhoberman/autoresearch",
+  "reason": "no license"
+ },
+ {
+  "name": "backlink-intelligence",
+  "repo": "arturseo-geo/cowork-backlink-intelligence",
+  "reason": "no license"
+ },
+ {
+  "name": "backpack-ontology",
+  "repo": "NoahIrzinger/backpack-ontology-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "bci",
+  "repo": "qinnovates/bci-security",
+  "reason": "no license"
+ },
+ {
+  "name": "bigdata-com",
+  "repo": "Bigdata-com/bigdata-plugins-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "billing-plane",
+  "repo": "kamesh231/billingplane",
+  "reason": "no license"
+ },
+ {
+  "name": "billingplane",
+  "repo": "kamesh231/billingplane",
+  "reason": "no license"
+ },
+ {
+  "name": "bini-zzang",
+  "repo": "ansolbini-oss/bini-zzang",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "bitfab",
+  "repo": "Project-White-Rabbit/bitfab-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "blink",
+  "repo": "blink-new/blink-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "blueprint",
+  "repo": "MartelGPT10/blueprint",
+  "reason": "no license"
+ },
+ {
+  "name": "blueprint-sdlc",
+  "repo": "skaisser/blueprint-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "blueprint-trigger",
+  "repo": "DanielaGallardoio/blueprint-trigger",
+  "reason": "no license"
+ },
+ {
+  "name": "boss-ai-agent",
+  "repo": "tonypk/boss-ai-agent-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "breezeware-dev-plugins",
+  "repo": "Breezeware-OS/breezeware-claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "browserless",
+  "repo": "browserless/claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "bug-fixing-autoreport",
+  "repo": "maxirodr/bug-fixing-autoreport",
+  "reason": "no license"
+ },
+ {
+  "name": "bulk-image-generation",
+  "repo": "christianpasinrey/bulk-image-generation-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "busycal",
+  "repo": "BeehiveInnovations/busycal-mcpb",
+  "reason": "no license"
+ },
+ {
+  "name": "c3poh-telegram-bridge-for-claude-code",
+  "repo": "andyuninvited/c3poh_for_claudecode",
+  "reason": "no license"
+ },
+ {
+  "name": "cadbuildr-ai-plugin",
+  "repo": "cadbuildr/cadbuildr-ai-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "canadian-regulatory-compliance",
+  "repo": "Srivatsa-Kasagar/canadian-regulatory-compliance",
+  "reason": "no license"
+ },
+ {
+  "name": "cascade",
+  "repo": "alibrahim/cascade",
+  "reason": "no license"
+ },
+ {
+  "name": "castellano-rae",
+  "repo": "willdma95/castellano-rae-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "cc",
+  "repo": "anipotts/cc",
+  "reason": "archived"
+ },
+ {
+  "name": "cc-boost",
+  "repo": "sworddut/cc-boost",
+  "reason": "no license"
+ },
+ {
+  "name": "cc-meme",
+  "repo": "wuyouMaster/cc-meme",
+  "reason": "no license"
+ },
+ {
+  "name": "cc-orchestrador-subagents",
+  "repo": "AllanHarlen/cc-orchestrador-subagents",
+  "reason": "no license"
+ },
+ {
+  "name": "ceramic-search",
+  "repo": "CeramicTeam/ceramic-claude-code-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "challenger",
+  "repo": "ismailnakkar/challenger-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "chinese-llm-models",
+  "repo": "aisa-one/aisa-provider",
+  "reason": "no license"
+ },
+ {
+  "name": "chuck",
+  "repo": "cssmith615/chuck-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "circumpunct-ethics-virtues-plugin",
+  "repo": "AshmanRoonz/Fractal_Reality",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-5h-window-spread",
+  "repo": "Digital-Process-Tools/claude-5h-window-spread",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-alloy",
+  "repo": "OMARVII/claude-alloy",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "claude-co2-status-line",
+  "repo": "stuartshields/claude-co2-status-line",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-code-achievements",
+  "repo": "subinium/claude-code-achievements",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-code-inspect",
+  "repo": "digital-flowers/claude-code-inspect",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-codex-loop",
+  "repo": "Whisker17/claude-codex-loop",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-cowork-personal-context-loader",
+  "repo": "markdtait/personal-context-loader",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-crew",
+  "repo": "balamuthu1/claude-crew",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-education-skills-library",
+  "repo": "GarethManning/claude-education-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-forge",
+  "repo": "JunghyunRyu/claude-forge",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-human-review",
+  "repo": "IrtezaAsadRizvi/claude-human-review",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-hwp-plugin",
+  "repo": "hyunmin625/claude-hwp-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-lean",
+  "repo": "taejunoh/claude-lean",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "claude-md-optimizer",
+  "repo": "wrsmith108/claude-md-optimizer",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-memory",
+  "repo": "tars23364-bit/claude-memory",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-project-context-manager",
+  "repo": "its-animay/claude-project-context-manager",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-pulse",
+  "repo": "NoobyGains/claude-pulse",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-review-loop",
+  "repo": "andytango/claude-review-loop",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-security-linter",
+  "repo": "its-animay/claude-security-linter",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-seo-and-geo-site-audit",
+  "repo": "rjspence3/claude-site-audit",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-seo-skill",
+  "repo": "mangollc/claude-seo-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-skills",
+  "repo": "surajhk/claude-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-sqlite-plugin",
+  "repo": "SongTonyLi/claude-sqlite-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-tab-fix",
+  "repo": "WithHolm/claude-tab-fix",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-tamagotchi",
+  "repo": "ncrohn/claude-tamagotchi",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-token-stats",
+  "repo": "sabahkemalcansu/claude-token-stats",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-trading-skills-marketplace",
+  "repo": "pasie15/claude-trading-skills-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-trinity",
+  "repo": "orion-gz/Claude-Trinity",
+  "reason": "no license"
+ },
+ {
+  "name": "claude-universe",
+  "repo": "mbwsims/claude-universe",
+  "reason": "no license"
+ },
+ {
+  "name": "clawket",
+  "repo": "Seungwoo321/clawket",
+  "reason": "no license"
+ },
+ {
+  "name": "clawlock",
+  "repo": "PalmCoast/clawlock-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "clawvisor",
+  "repo": "clawvisor/cowork-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "clean-architecture",
+  "repo": "MorcosS/clean-architecture-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "clearskies-cowork-plugin",
+  "repo": "scratchpad-ai/clearskies-cowork-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "clearspeech",
+  "repo": "JulieGoulet2/clearspeech-skill-",
+  "reason": "no license"
+ },
+ {
+  "name": "cleo",
+  "repo": "Surt/cleo",
+  "reason": "no license"
+ },
+ {
+  "name": "cletus-loop",
+  "repo": "omarclaflin/cletus-loop",
+  "reason": "no license"
+ },
+ {
+  "name": "cloud-finops",
+  "repo": "OptimNow/cloud-finops-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "cloudinary",
+  "repo": "cloudinary-devs/cloudinary-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "clover",
+  "repo": "clover-security/clover-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "cocart-api",
+  "repo": "cocart-headless/claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "code-architecture-review",
+  "repo": "Farjmand/code-architecture-review",
+  "reason": "no license"
+ },
+ {
+  "name": "code-parser",
+  "repo": "M97Chahboun/code-parser-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "code-review-harness",
+  "repo": "naokami3/ai_dotfiles",
+  "reason": "no license"
+ },
+ {
+  "name": "codebase-quality",
+  "repo": "baranbingol1/claude-codebase-quality",
+  "reason": "no license"
+ },
+ {
+  "name": "codebase-visualizer",
+  "repo": "belugatempo-dot/codebase-visualizer",
+  "reason": "no license"
+ },
+ {
+  "name": "codeflash",
+  "repo": "codeflash-ai/codeflash-cc-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "codeminder-agent",
+  "repo": "swati-cm/codeminder-agent-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "codeqr",
+  "repo": "codeqr-io/codeqr-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "coderocket",
+  "repo": "mlgraham/coderocket-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "codescene-codehealth",
+  "repo": "codescene-oss/codescene-mcp-server",
+  "reason": "no license"
+ },
+ {
+  "name": "coding-standards-interview",
+  "repo": "likeahuman-ai/coding-standards",
+  "reason": "no license"
+ },
+ {
+  "name": "cognito",
+  "repo": "herrhelms/cognito-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "coinpaprika",
+  "repo": "coinpaprika/claude-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "dexpaprika",
+  "repo": "coinpaprika/claude-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "colosseum",
+  "repo": "JinHo-von-Choi/colosseum",
+  "reason": "no license"
+ },
+ {
+  "name": "comment-io-docs",
+  "repo": "comment-io/claude-code-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "commit-plugin",
+  "repo": "efanworks/commit-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "compact-guardian",
+  "repo": "ibarapascal/compact-guardian",
+  "reason": "archived"
+ },
+ {
+  "name": "compact-knowledge-graph-ckg",
+  "repo": "Yarmoluk/ckg-skills",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "comparative-landscape-brief",
+  "repo": "enalbenerraw/blanewarrene",
+  "reason": "no license"
+ },
+ {
+  "name": "compliance-checks",
+  "repo": "cyberagentic/compliance-checks",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "constellation",
+  "repo": "avarajar/constellation",
+  "reason": "no license"
+ },
+ {
+  "name": "content-analysis",
+  "repo": "PeterMalmkjaer/content-analysis-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "content-analysis-plugin",
+  "repo": "PeterMalmkjaer/content-analysis-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "contentstack-vibe-docs",
+  "repo": "timbenniks/contentstack-vibe-docs",
+  "reason": "archived"
+ },
+ {
+  "name": "context-link",
+  "repo": "Context-Link/context-link-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "context-mode",
+  "repo": "mksglu/context-mode",
+  "reason": "no license"
+ },
+ {
+  "name": "contextstellar",
+  "repo": "sunnypatneedi/claude-code-contextstellar",
+  "reason": "no license"
+ },
+ {
+  "name": "coordinator-claude",
+  "repo": "oduffy-delphi/coordinator-claude",
+  "reason": "no license"
+ },
+ {
+  "name": "cost-estimate",
+  "repo": "exhuman777/cost-estimate",
+  "reason": "no license"
+ },
+ {
+  "name": "cowork-plugin-management",
+  "repo": null,
+  "reason": "no repository resolved"
+ },
+ {
+  "name": "cpa-practice-toolkit",
+  "repo": "NewbieAppBuilder/cpa-practice-toolkit",
+  "reason": "no license"
+ },
+ {
+  "name": "craft-ui",
+  "repo": "HelicopterHelicopter/craft-ui",
+  "reason": "no license"
+ },
+ {
+  "name": "credit-memo",
+  "repo": "anthropic-plugin/credit-memo-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "credyt",
+  "repo": "credyt/ai-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "crowdcast",
+  "repo": "TheQmaks/crowdcast",
+  "reason": "no license"
+ },
+ {
+  "name": "csharp-lsp-roslyn",
+  "repo": "sunghwan2789/csharp-lsp-roslyn",
+  "reason": "no license"
+ },
+ {
+  "name": "ctx",
+  "repo": "nicolasse/ctx",
+  "reason": "no license"
+ },
+ {
+  "name": "cyclebottom-risk",
+  "repo": "cyclebottom/risk-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "d2c",
+  "repo": "d2c-ai/d2c",
+  "reason": "no license"
+ },
+ {
+  "name": "daily-productivity-for-devs",
+  "repo": "gpsandhu23/daily_productivity_plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "dalykit",
+  "repo": "taehyunan-99/DalyKit",
+  "reason": "no license"
+ },
+ {
+  "name": "data-converter-plugin",
+  "repo": "yoooche/data-converter-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "dbt-toolkit",
+  "repo": "rishav1305/dbt-toolkit",
+  "reason": "no license"
+ },
+ {
+  "name": "debate",
+  "repo": "agent-sh/debate",
+  "reason": "no license"
+ },
+ {
+  "name": "decimal-scaled",
+  "repo": "mootable/decimal-scaled",
+  "reason": "no license"
+ },
+ {
+  "name": "decision-council",
+  "repo": "fusion-software-ltd/decision-council",
+  "reason": "no license"
+ },
+ {
+  "name": "deep-value",
+  "repo": "deepvalueinvesting/deep-value-tase-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "delta-skills",
+  "repo": "chanukyapekala/delta-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "demo-st",
+  "repo": "demo-stage/demo.st-Claude",
+  "reason": "no license"
+ },
+ {
+  "name": "demo-stage",
+  "repo": "demo-stage/demo.st-Claude",
+  "reason": "no license"
+ },
+ {
+  "name": "deployhq-cli",
+  "repo": "deployhq/deployhq-cli",
+  "reason": "no license"
+ },
+ {
+  "name": "deslop",
+  "repo": "agent-sh/deslop",
+  "reason": "no license"
+ },
+ {
+  "name": "dev-forge",
+  "repo": "yn01/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "diagrams",
+  "repo": "tirandagan/claude-diagrams",
+  "reason": "no license"
+ },
+ {
+  "name": "discord-threads",
+  "repo": "AxiumFoundry/claude-discord-threads-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "distill",
+  "repo": "UtkarshJain98/distill",
+  "reason": "no license"
+ },
+ {
+  "name": "djclaude",
+  "repo": "kevdogg102396-afk/djclaude",
+  "reason": "no license"
+ },
+ {
+  "name": "doc-authoring-skills",
+  "repo": "naokami3/ai_dotfiles",
+  "reason": "no license"
+ },
+ {
+  "name": "doc-authoring-skills-ja",
+  "repo": "naokami3/ai_dotfiles",
+  "reason": "no license"
+ },
+ {
+  "name": "docpler",
+  "repo": "docpler/docpler-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "doit-cloud-intelligence",
+  "repo": "doitintl/doit-mcp-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "doit-mcp-skills",
+  "repo": "doitintl/doit-mcp-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "doom-design-system",
+  "repo": "ornelasEduardo/doom",
+  "reason": "no license"
+ },
+ {
+  "name": "dopamine",
+  "repo": "Teese999/Dopamine",
+  "reason": "no license"
+ },
+ {
+  "name": "draft-pm-brain",
+  "repo": "idodekerobo/draft-cli-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "drafted-learn",
+  "repo": "draftedlabs/drafted-learn",
+  "reason": "no license"
+ },
+ {
+  "name": "drift-detect",
+  "repo": "agent-sh/drift-detect",
+  "reason": "no license"
+ },
+ {
+  "name": "drift-guard",
+  "repo": "pgomes13/drift-guard-engine",
+  "reason": "no license"
+ },
+ {
+  "name": "duende-agent-skills",
+  "repo": "DuendeSoftware/duende-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "easedup",
+  "repo": "easedup/plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "echosy",
+  "repo": "woponi/echosy-releases",
+  "reason": "no license"
+ },
+ {
+  "name": "egnyte",
+  "repo": "egnyte/egnyte-for-ai",
+  "reason": "no license"
+ },
+ {
+  "name": "email-triage",
+  "repo": "Context-Link/email-triage-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "engram",
+  "repo": "tstockham96/engram-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "enhance",
+  "repo": "agent-sh/enhance",
+  "reason": "no license"
+ },
+ {
+  "name": "enhanced-statusline",
+  "repo": "deepan-g2/claude-statusline-plugin",
+  "reason": "untouched for 180 days"
+ },
+ {
+  "name": "env-guardian",
+  "repo": "barnburner121/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "enzyme",
+  "repo": "jshph/enzyme",
+  "reason": "no license"
+ },
+ {
+  "name": "eterdis-strategy-skills",
+  "repo": "eterdis/strategy-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "evalloop",
+  "repo": "kingmadellc/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "evanflow",
+  "repo": "evanklem/evanflow",
+  "reason": "no license"
+ },
+ {
+  "name": "fahimtran",
+  "repo": "fahimtran/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "fashion-agent",
+  "repo": "swati-cm/fashion-agent-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "fde-os",
+  "repo": "suboss87/fde-os",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "figma-test",
+  "repo": "figma/mcp-server-guide",
+  "reason": "no license"
+ },
+ {
+  "name": "findem-studio",
+  "repo": "findemdev/findem-studio-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "flexcompute",
+  "repo": "flexcompute/plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "founderfocus",
+  "repo": "MartelGPT10/founderfocus",
+  "reason": "no license"
+ },
+ {
+  "name": "framecraft",
+  "repo": "vaddisrinivas/framecraft",
+  "reason": "no license"
+ },
+ {
+  "name": "frank-grimes",
+  "repo": "misfitdev/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "fullstory",
+  "repo": "fullstorydev/fullstory-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "gate-and-ship",
+  "repo": "agent-sh/gate-and-ship",
+  "reason": "no license"
+ },
+ {
+  "name": "gatekeeper-ai",
+  "repo": "darkknight4563/gatekeeper-ai-procurement",
+  "reason": "no license"
+ },
+ {
+  "name": "genpptx",
+  "repo": "yn01/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "geo-audit-by-alignment-ai",
+  "repo": "Alignment-GEOAI/alignment-workspace",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "geo-generative-engine-optimisation",
+  "repo": "arturseo-geo/cowork-geo-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "germany-finance-accounting",
+  "repo": "mlobo2012/Germany-SMB-Finance-Accounting-Plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "germany-legal",
+  "repo": "mlobo2012/Germany-SMB-Legal-Plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "getlark",
+  "repo": "getlark/skills",
+  "reason": "no license"
+ },
+ {
+  "name": "gh-dash",
+  "repo": "jakozloski/claude-code-gh-dash",
+  "reason": "no license"
+ },
+ {
+  "name": "ghost-architect",
+  "repo": "EJWisner/ghost-architect-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "ghostty-dynamic-themes",
+  "repo": "CharlieGreenman/ghostty-dynamic-themes",
+  "reason": "no license"
+ },
+ {
+  "name": "git-weekly-changelog",
+  "repo": "seunggyuyoon-rgb/git-weekly-changelog",
+  "reason": "no license"
+ },
+ {
+  "name": "githubclip",
+  "repo": "gvzq/githubclip",
+  "reason": "no license"
+ },
+ {
+  "name": "gitkb",
+  "repo": "gitkb/gitkb-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "global-entry-appointment-scanner",
+  "repo": "JaiminBrahmbhatt/Global-Entry-Appointment-Scanner",
+  "reason": "no license"
+ },
+ {
+  "name": "glow",
+  "repo": "talktoglow/glow-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "gortex",
+  "repo": "gortexhq/claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "govafy-unsolicited-proposal-kit",
+  "repo": "abexiong/govafy-unsolicited-proposal-kit",
+  "reason": "no license"
+ },
+ {
+  "name": "graperoot",
+  "repo": "kunal12203/graperoot-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "greenflash",
+  "repo": "greenflash-ai/agent-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "grimoire",
+  "repo": "hexstack-apps/claude-plugin-grimoire",
+  "reason": "no license"
+ },
+ {
+  "name": "grounded-leader-plugin",
+  "repo": "mathildespring/grounded-leader-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "gst-invoice-generator-india",
+  "repo": "bytezbridge/gst-invoice-payment",
+  "reason": "no license"
+ },
+ {
+  "name": "guide",
+  "repo": "OriNachum/onboarding-claude-code",
+  "reason": "no license"
+ },
+ {
+  "name": "halliday-payments",
+  "repo": "HallidayInc/HallidayClaudePlugin",
+  "reason": "no license"
+ },
+ {
+  "name": "halyard",
+  "repo": "halyard-labs/claude-plugin-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "handoffkit",
+  "repo": "Norsninja/handoffkit-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "harness-sast-and-sca",
+  "repo": "ShiftLeftSecurity/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "hasdata",
+  "repo": "HasData/hasdata-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "haunt-api",
+  "repo": "Darko893/haunt-mcp-server",
+  "reason": "archived"
+ },
+ {
+  "name": "hdcd-telegram",
+  "repo": "gohyperdev/hdcd-telegram-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "hermitsh-shrimp",
+  "repo": "hermitsh-ai/hermitsh-shrimp-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "hookdeck",
+  "repo": "hookdeck/claude-channel-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "housekeeping",
+  "repo": "yoelf22/claude-housekeeping-plugin",
+  "reason": "archived"
+ },
+ {
+  "name": "hs",
+  "repo": "frmoretto/hardstop",
+  "reason": "no license"
+ },
+ {
+  "name": "html2figma",
+  "repo": "asxelot/html2figma",
+  "reason": "no license"
+ },
+ {
+  "name": "humwork",
+  "repo": "humworkai/humwork-mcp",
+  "reason": "no license"
+ },
+ {
+  "name": "hwpx",
+  "repo": "hohyon-ryu/claude-hwpx-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "hyday-channel",
+  "repo": "mukiwu/hyday-channel",
+  "reason": "no license"
+ },
+ {
+  "name": "hyperflow",
+  "repo": "Mohammed-Abdelhady/hyperflow",
+  "reason": "no license"
+ },
+ {
+  "name": "hyperscope-plugins",
+  "repo": "hyperscope-sh/hyperscope-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "i-ching",
+  "repo": "threemachines/i-ching",
+  "reason": "untouched for 180 days"
+ },
+ {
+  "name": "ice-framework",
+  "repo": "Topsy31/ICE",
+  "reason": "no license"
+ },
+ {
+  "name": "idle-timing",
+  "repo": "clankercode/claude-inject-idle-time",
+  "reason": "no license"
+ },
+ {
+  "name": "inference-sh",
+  "repo": "inference-sh/skills",
+  "reason": "no license"
+ },
+ {
+  "name": "infiniteclaud",
+  "repo": "Silvakazu-cell/infiniteclaud",
+  "reason": "no license"
+ },
+ {
+  "name": "infynon-pkg",
+  "repo": "d4rkNinja/code-guardian",
+  "reason": "no license"
+ },
+ {
+  "name": "insight-badger",
+  "repo": "ozturkumut/contextro",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "intern-101",
+  "repo": "Arnav1906/intern-101",
+  "reason": "no license"
+ },
+ {
+  "name": "james",
+  "repo": "tenfoldmarc/website-builder-setup",
+  "reason": "no license"
+ },
+ {
+  "name": "jarvis",
+  "repo": "civitas-cerebrum/jarvis-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "jelly-pet",
+  "repo": "ejlee-0924/jelly-pet",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "jira",
+  "repo": "mulhamna/jira-commands",
+  "reason": "no license"
+ },
+ {
+  "name": "joai",
+  "repo": "joai-plugins/joai",
+  "reason": "no license"
+ },
+ {
+  "name": "jointjs-code-playground",
+  "repo": "clientIO/jointjs-claude-playground",
+  "reason": "no license"
+ },
+ {
+  "name": "juicify",
+  "repo": "hminnnnnn/juicify",
+  "reason": "no license"
+ },
+ {
+  "name": "just-ship",
+  "repo": "yves-s/just-ship",
+  "reason": "no license"
+ },
+ {
+  "name": "k12mcp",
+  "repo": "crafty184/k12mcp-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "kaizen",
+  "repo": "imadAttar/kaizen",
+  "reason": "no license"
+ },
+ {
+  "name": "kate-the-career-coach",
+  "repo": "cbellbell-spin/kate-career-coach",
+  "reason": "no license"
+ },
+ {
+  "name": "kepler",
+  "repo": "KeplerBrowser/Plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "khaki-sketcher",
+  "repo": "KhakiSkech/KhakiSketcher",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "lambda-api-plugin",
+  "repo": "hu-shukang/lambda-api-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "laravel-ai-starter",
+  "repo": "maj0rr/laravel-ai-starter",
+  "reason": "no license"
+ },
+ {
+  "name": "laravel-best-practices",
+  "repo": "masterfermin02/laravel-agent-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "lark-feishu-integration",
+  "repo": "seahyc/lark-cowork-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "last-30-days-skill",
+  "repo": "ren365/last-30-days-skill",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "launchdarkly",
+  "repo": "launchdarkly/ai-tooling",
+  "reason": "no license"
+ },
+ {
+  "name": "leader-as-coach",
+  "repo": "LBD-DASH/leader-as-coach",
+  "reason": "no license"
+ },
+ {
+  "name": "lean-pm-skills",
+  "repo": "mrthames/lean-pm-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "learn",
+  "repo": "agent-sh/learn",
+  "reason": "no license"
+ },
+ {
+  "name": "legalzoom",
+  "repo": "legalzoom/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "light-mcp",
+  "repo": "light-space/light-mcp",
+  "reason": "no license"
+ },
+ {
+  "name": "lightrun",
+  "repo": "lightrun-platform/lightrun-ai",
+  "reason": "no license"
+ },
+ {
+  "name": "linkedin-poster",
+  "repo": "cnfcnf/linkedin-poster",
+  "reason": "no license"
+ },
+ {
+  "name": "lintconfig",
+  "repo": "idiomaticrefactoring/LintConfig",
+  "reason": "no license"
+ },
+ {
+  "name": "liquid-lsp",
+  "repo": "Shopify/liquid-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "lisa",
+  "repo": "blencorp/lisa",
+  "reason": "no license"
+ },
+ {
+  "name": "lite-bb",
+  "repo": "key4ng/claude-skill-bb",
+  "reason": "no license"
+ },
+ {
+  "name": "llm-wiki",
+  "repo": "esxr/llm-wiki",
+  "reason": "no license"
+ },
+ {
+  "name": "looper-loop",
+  "repo": "Altair200333/looperloop",
+  "reason": "no license"
+ },
+ {
+  "name": "loreconvo",
+  "repo": "labyrinth-analytics/loreconvo",
+  "reason": "no license"
+ },
+ {
+  "name": "loredocs",
+  "repo": "labyrinth-analytics/loredocs",
+  "reason": "no license"
+ },
+ {
+  "name": "m365-it-admin-library",
+  "repo": "DonteWong/claude-plugins-official",
+  "reason": "no license"
+ },
+ {
+  "name": "magicpath",
+  "repo": "MagicPathAI/agent-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "make-documentation",
+  "repo": "maximilianozurita/makeDoc",
+  "reason": "no license"
+ },
+ {
+  "name": "mangrovetrader",
+  "repo": "MangroveTechnologies/mangrove-trader-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "markgrab",
+  "repo": "QuartzUnit/markgrab-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "mash-multi-agent-software-harness",
+  "repo": "dmarchevsky/mash",
+  "reason": "no license"
+ },
+ {
+  "name": "masthead-data",
+  "repo": "masthead-data/for-agents",
+  "reason": "no license"
+ },
+ {
+  "name": "maxim",
+  "repo": "DrNabeelKhan/maxim",
+  "reason": "no license"
+ },
+ {
+  "name": "mcp-apps",
+  "repo": "modelcontextprotocol/ext-apps",
+  "reason": "no license"
+ },
+ {
+  "name": "mcp-apps-plugin",
+  "repo": "modelcontextprotocol/ext-apps",
+  "reason": "no license"
+ },
+ {
+  "name": "mcp-server-guide",
+  "repo": "AnimaApp/mcp-server-guide",
+  "reason": "no license"
+ },
+ {
+  "name": "mcpa",
+  "repo": "yn01/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "mcpd",
+  "repo": "yn01/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "mcpg",
+  "repo": "yn01/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "mcpl",
+  "repo": "yn01/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "mcpr",
+  "repo": "yn01/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "mcpx",
+  "repo": "yn01/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "md2red",
+  "repo": "LLM-X-Factorer/md2red",
+  "reason": "no license"
+ },
+ {
+  "name": "medusa-dev",
+  "repo": "medusajs/medusa-claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "memex",
+  "repo": "Shvmvrshny/memex",
+  "reason": "no license"
+ },
+ {
+  "name": "mentor",
+  "repo": "ShawnCholeva/mentor",
+  "reason": "no license"
+ },
+ {
+  "name": "merch",
+  "repo": "Social-Supermarket/merch-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "merge-agent-handler",
+  "repo": "merge-api/ah-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "messages-for-ai",
+  "repo": "Sunrise-Labs-Dot-AI/messages-for-ai",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "mexus-agent-team",
+  "repo": "yofine/mexus-agent-team",
+  "reason": "no license"
+ },
+ {
+  "name": "mindwright",
+  "repo": "Joys-Dawn/toolwright",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "mineru-document-extraction",
+  "repo": "decrystal/mineru-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "minutemind-co",
+  "repo": "atopheim/minutemind-mcp-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "mmpm-cognitive-os",
+  "repo": "chiKeka/mmpm-cos",
+  "reason": "no license"
+ },
+ {
+  "name": "mo-es-governance",
+  "repo": "SunrisesIllNeverSee/moses-governance",
+  "reason": "no license"
+ },
+ {
+  "name": "mo-es-governance-for-cowork",
+  "repo": "SunrisesIllNeverSee/moses-governance-cowork",
+  "reason": "no license"
+ },
+ {
+  "name": "modo",
+  "repo": "curiosityarc/modo",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "moeba-channel",
+  "repo": "jaspergreen/moeba-claude-channel",
+  "reason": "no license"
+ },
+ {
+  "name": "monzphere-zabbix-module-builder",
+  "repo": "Monzphere/zabbix-module-builder",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "mpp-inspector",
+  "repo": "amgb20/mpp-inspector-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "muapi-marketing-video",
+  "repo": "phamvuhoang/muapi-marketing-video-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "multiversx-by-joai",
+  "repo": "joai-plugins/multiversx",
+  "reason": "no license"
+ },
+ {
+  "name": "munin-memory",
+  "repo": "3d-era/munin-for-agents",
+  "reason": "no license"
+ },
+ {
+  "name": "mvnpm",
+  "repo": "mvnpm/mvnpm-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "mvpify",
+  "repo": "Zhang-Yiqian/MVPify",
+  "reason": "no license"
+ },
+ {
+  "name": "mygigsters-super",
+  "repo": "mygigsters/mygigsters-super-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "namejam",
+  "repo": "FireflySentinel/namejam",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "nemovideo-ai-video-tools",
+  "repo": "bwbernardweston18/nemovideo-ai-video-tools",
+  "reason": "no license"
+ },
+ {
+  "name": "nexo-brain",
+  "repo": "wazionapps/nexo",
+  "reason": "archived"
+ },
+ {
+  "name": "next-task",
+  "repo": "agent-sh/next-task",
+  "reason": "no license"
+ },
+ {
+  "name": "ng",
+  "repo": "mayeedwin/angular-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "niw-skills",
+  "repo": "thepaperscompany/niw-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "nonprofit-grant-writer-kit",
+  "repo": "DonteWong/claude-plugins-official",
+  "reason": "no license"
+ },
+ {
+  "name": "norma-claude-skill",
+  "repo": "kynosure-ai/norma-claude-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "nuberea",
+  "repo": "streamsapps/nuberea-mcp",
+  "reason": "no license"
+ },
+ {
+  "name": "obsidian-connector",
+  "repo": "mariourquia/obsidian-connector",
+  "reason": "no license"
+ },
+ {
+  "name": "obsidian-vault-for-claude-code",
+  "repo": "mehmetcakoglu/claude-obsidian-vault-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "obsx",
+  "repo": "mariourquia/obsidian-connector",
+  "reason": "no license"
+ },
+ {
+  "name": "ocrwell",
+  "repo": "ocrwell/skill",
+  "reason": "no license"
+ },
+ {
+  "name": "oh-my-obsidian",
+  "repo": "hongdangmoo49/oh-my-obsidian",
+  "reason": "no license"
+ },
+ {
+  "name": "one-workflow",
+  "repo": "ATreep/one-workflow",
+  "reason": "no license"
+ },
+ {
+  "name": "open-crab",
+  "repo": "jay2zxy/Open-Crab",
+  "reason": "no license"
+ },
+ {
+  "name": "open-rx",
+  "repo": "CutTheChexx/open-rx",
+  "reason": "no license"
+ },
+ {
+  "name": "open-rx-otc",
+  "repo": "CutTheChexx/open-rx",
+  "reason": "no license"
+ },
+ {
+  "name": "opendeploy",
+  "repo": "opendeploy-dev/opendeploy-claude-plugin",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "openfunnel",
+  "repo": "openfunnel/openfunnel",
+  "reason": "no license"
+ },
+ {
+  "name": "opsera-devsecops",
+  "repo": "opsera-agents/opsera-devsecops",
+  "reason": "no license"
+ },
+ {
+  "name": "optikit",
+  "repo": "dev-mahmoud-elshenawy/optikit",
+  "reason": "no license"
+ },
+ {
+  "name": "orchestrator-workflow-plugin",
+  "repo": "DuckrOverload/duckr-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "origami-ms",
+  "repo": "yaniv-ctrl/origami-ms-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "orion-trading-intelligence",
+  "repo": "kokoju007/orion-trading-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "ory-lumen",
+  "repo": "ory/lumen",
+  "reason": "no license"
+ },
+ {
+  "name": "oya",
+  "repo": "foogunlana/oya-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "paper-desktop",
+  "repo": "paper-design/agent-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "paramify",
+  "repo": "paramify/paramify-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "pdca-framework",
+  "repo": "kenjudy/pdca-framework",
+  "reason": "no license"
+ },
+ {
+  "name": "peek",
+  "repo": "Project-White-Rabbit/peek-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "perception-first-design",
+  "repo": "skovalik/perception-first-design",
+  "reason": "no license"
+ },
+ {
+  "name": "perf",
+  "repo": "agent-sh/perf",
+  "reason": "no license"
+ },
+ {
+  "name": "person-context",
+  "repo": "tier1kun/person-context",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "persona",
+  "repo": "tatertot365/claude-persona-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "personal-council",
+  "repo": "LEGO-SUDO/personal-council",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "personality",
+  "repo": "nickmerrett/personality",
+  "reason": "no license"
+ },
+ {
+  "name": "perxel-blocks",
+  "repo": "perxel/perxel-blocks",
+  "reason": "archived"
+ },
+ {
+  "name": "phantom",
+  "repo": "fadelabs/phantom",
+  "reason": "no license"
+ },
+ {
+  "name": "php-lsp-claude-code-plugin",
+  "repo": "jorgsowa/claude-php-lsp-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "pigment",
+  "repo": "gopigment/ai-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "pix",
+  "repo": "skobak/pix",
+  "reason": "no license"
+ },
+ {
+  "name": "plan-review",
+  "repo": "wrsmith108/plan-review-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "plan-review-skill",
+  "repo": "wrsmith108/plan-review-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "plane",
+  "repo": "makeplane/plane-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "planetscale",
+  "repo": "planetscale/claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "plansmith",
+  "repo": "gigagookbob/plansmith",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "playlist-curator",
+  "repo": "rachel-howell/spotify-playlist-curator",
+  "reason": "no license"
+ },
+ {
+  "name": "playwright-aqa",
+  "repo": "MStroievus/playwright-aqa-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "plex-ui",
+  "repo": "plex-ui/docs",
+  "reason": "no license"
+ },
+ {
+  "name": "pm-ai-partner-framework",
+  "repo": "ahmedkhaledmohamed/PM-AI-Partner-Framework",
+  "reason": "no license"
+ },
+ {
+  "name": "pmm",
+  "repo": "NominexHQ/pmm-plugin",
+  "reason": "archived"
+ },
+ {
+  "name": "pok-dex",
+  "repo": "SNLabat/Pokemon-Pokedex-Plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "pokemon-pokedex",
+  "repo": "SNLabat/Pokemon-Pokedex-Plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "popper-probe",
+  "repo": "mashathepotato/popper-probe",
+  "reason": "no license"
+ },
+ {
+  "name": "portfolio-review",
+  "repo": "wonjyou/portfolio-review-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "posthog",
+  "repo": "PostHog/ai-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "postiz",
+  "repo": "gitroomhq/postiz-agent",
+  "reason": "no license"
+ },
+ {
+  "name": "pptx-deck-plugin",
+  "repo": "Atomic-man007/pptx-deck-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "pr-review-fix",
+  "repo": "VincentBoillotDevalliere/sofware-engineer-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "pramana",
+  "repo": "lambda-brahman/pramana",
+  "reason": "no license"
+ },
+ {
+  "name": "praxis-engineering",
+  "repo": "borghei/Claude-Skills",
+  "reason": "no license"
+ },
+ {
+  "name": "prepare-delivery",
+  "repo": "agent-sh/prepare-delivery",
+  "reason": "no license"
+ },
+ {
+  "name": "preset-toolkit",
+  "repo": "rishav1305/preset-toolkit",
+  "reason": "no license"
+ },
+ {
+  "name": "prince-pdf-claude",
+  "repo": "yeslogic/prince-pdf-claude",
+  "reason": "no license"
+ },
+ {
+  "name": "prisma",
+  "repo": "prisma/claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "product-in-acquisitions",
+  "repo": "enalbenerraw/blanewarrene",
+  "reason": "no license"
+ },
+ {
+  "name": "production-grade",
+  "repo": "nagisanzenin/claude-code-production-grade-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "project-env-config",
+  "repo": "ConanXu-math/project-env-config",
+  "reason": "no license"
+ },
+ {
+  "name": "project-manager-vibes",
+  "repo": "christinezhang5/project-manager-nuggieai-vibes-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "project-notion",
+  "repo": "ArziTech/project-notion",
+  "reason": "no license"
+ },
+ {
+  "name": "project-pilot",
+  "repo": "David-Mazig/Project-Pilot",
+  "reason": "no license"
+ },
+ {
+  "name": "project-version-workflow",
+  "repo": "ATreep/project-version-workflow",
+  "reason": "no license"
+ },
+ {
+  "name": "prompt-sentinel-v1",
+  "repo": "reneemgagnon/Prompt_Sentinel",
+  "reason": "no license"
+ },
+ {
+  "name": "promptarc",
+  "repo": "promptarc/promptarc-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "protect-mcp",
+  "repo": "tomjwxf/protect-mcp-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "prowlo-for-claude",
+  "repo": "prowlo-com/prowlo-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "pskoett-ai-skills",
+  "repo": "pskoett/pskoett-ai-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "python-remote-debug-skill",
+  "repo": "promptromp/python-remote-debug-skill",
+  "reason": "untouched for 180 days"
+ },
+ {
+  "name": "qlik-agents",
+  "repo": "Pupfish-LLC/qlik-agents",
+  "reason": "no license"
+ },
+ {
+  "name": "qt-development",
+  "repo": "TheQtCompanyRnD/agent-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "quick-question-q",
+  "repo": "nentrapper-g-rod/claude-quick-question",
+  "reason": "no license"
+ },
+ {
+  "name": "ranger",
+  "repo": "ranger-testing/trailhead",
+  "reason": "no license"
+ },
+ {
+  "name": "react-native-best-practices",
+  "repo": "petro-nazarenko/mobile-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "reactotron",
+  "repo": "steve228uk/reactotron-mcp",
+  "reason": "archived"
+ },
+ {
+  "name": "readdown",
+  "repo": "zcag/readdown-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "real-time-backend",
+  "repo": "get-convex/real-time-backend",
+  "reason": "no license"
+ },
+ {
+  "name": "remember",
+  "repo": "Digital-Process-Tools/claude-remember",
+  "reason": "no license"
+ },
+ {
+  "name": "remotion-skills-marketplace",
+  "repo": "pasie15/remotion-skills-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "rfc-generator",
+  "repo": "Benedixx/claude-rfc",
+  "reason": "no license"
+ },
+ {
+  "name": "robynn",
+  "repo": "robynnai/robynn-claude-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "saas-toolkit",
+  "repo": "dangogit/saas-toolkit",
+  "reason": "no license"
+ },
+ {
+  "name": "sabha-os",
+  "repo": "rdmurugan/sabhaos",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "sandstorm",
+  "repo": "Sandstorm-App/MCP-Anthropic",
+  "reason": "no license"
+ },
+ {
+  "name": "santa-claude",
+  "repo": "stevysmith/santa-claude",
+  "reason": "untouched for 180 days"
+ },
+ {
+  "name": "sap-hana-cli",
+  "repo": "SAP-samples/hana-cli-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "scaffold",
+  "repo": "alexxenn/scaffold",
+  "reason": "no license"
+ },
+ {
+  "name": "scalekit-agent-auth",
+  "repo": "scalekit-inc/claude-code-authstack",
+  "reason": "no license"
+ },
+ {
+  "name": "scalekit-mcp-auth",
+  "repo": "scalekit-inc/claude-code-authstack",
+  "reason": "no license"
+ },
+ {
+  "name": "scalekit-modular-scim",
+  "repo": "scalekit-inc/claude-code-authstack",
+  "reason": "no license"
+ },
+ {
+  "name": "scalekit-modular-sso",
+  "repo": "scalekit-inc/claude-code-authstack",
+  "reason": "no license"
+ },
+ {
+  "name": "scan-modules",
+  "repo": "fengzhyuan/scan-modules-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "scheduler",
+  "repo": "jshchnz/claude-code-scheduler",
+  "reason": "untouched for 180 days"
+ },
+ {
+  "name": "sciagent-skills",
+  "repo": "jaechang-hits/SciAgent-Skills",
+  "reason": "no license"
+ },
+ {
+  "name": "sculpture",
+  "repo": "Prajhan26/sculpture-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "searchfit",
+  "repo": "searchfit/searchfit-seo",
+  "reason": "no license"
+ },
+ {
+  "name": "searchfit-seo",
+  "repo": "searchfit/searchfit-seo",
+  "reason": "no license"
+ },
+ {
+  "name": "second-brain",
+  "repo": "ORG028658/TheSecondBrain",
+  "reason": "no license"
+ },
+ {
+  "name": "security-watchdog",
+  "repo": "Entelligentsia/skillforge",
+  "reason": "no license"
+ },
+ {
+  "name": "seedflip",
+  "repo": "bockenstette1/seedflip",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "self-improving-agent-pipeline",
+  "repo": "pskoett/pskoett-ai-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "sentinel-kb",
+  "repo": "dolfrin/Sentinel-KB",
+  "reason": "no license"
+ },
+ {
+  "name": "sentio-ai-kit",
+  "repo": "sentioxyz/sentio-ai-kit",
+  "reason": "no license"
+ },
+ {
+  "name": "sentry-cli",
+  "repo": "getsentry/cli",
+  "reason": "no license"
+ },
+ {
+  "name": "seo-assistant-silverbee",
+  "repo": "silverbee-ai/claude-silverbee-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "seo-content-pipeline",
+  "repo": "arturseo-geo/cowork-seo-content-pipeline",
+  "reason": "no license"
+ },
+ {
+  "name": "servicenow-sdk",
+  "repo": "ServiceNow/sdk",
+  "reason": "no license"
+ },
+ {
+  "name": "session-orchestration",
+  "repo": "alphonso77/claude-orchestration",
+  "reason": "no license"
+ },
+ {
+  "name": "sessionsight",
+  "repo": "SessionSight/sdks",
+  "reason": "no license"
+ },
+ {
+  "name": "sfagent-tools",
+  "repo": "lucianostraga/sfagent-tools",
+  "reason": "no license"
+ },
+ {
+  "name": "shazam",
+  "repo": "qhuang20/shazam",
+  "reason": "no license"
+ },
+ {
+  "name": "shift-leadership-skills-for-the-ai-era",
+  "repo": "LBD-DASH/shift-leadership-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "shortcut",
+  "repo": "stayce/streamshortcut-cloudflare",
+  "reason": "untouched for 180 days"
+ },
+ {
+  "name": "signal-hunter",
+  "repo": "berkkorkmaz/signal-hunter",
+  "reason": "no license"
+ },
+ {
+  "name": "signalslabs",
+  "repo": "beee003/signalslabs-mcp",
+  "reason": "no license"
+ },
+ {
+  "name": "sindri",
+  "repo": "4KMetrics/sindri",
+  "reason": "no license"
+ },
+ {
+  "name": "sitemd",
+  "repo": "sitemd-cc/sitemd",
+  "reason": "no license"
+ },
+ {
+  "name": "skill-creator",
+  "repo": "aisa-one/skill-creator",
+  "reason": "no license"
+ },
+ {
+  "name": "skill-picker",
+  "repo": "qhuang20/skill-picker",
+  "reason": "no license"
+ },
+ {
+  "name": "skill-safety-auditor",
+  "repo": "mtthwmllr/skill-safety-auditor-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "skillbase",
+  "repo": "darthjaja6/skillbase-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "skillers",
+  "repo": "agent-sh/skillers",
+  "reason": "no license"
+ },
+ {
+  "name": "skills-lab",
+  "repo": "SujinHwang27/agent-os-lab",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "sklearn-to-ts",
+  "repo": "TGKMeissner/sklearn-to-typescript-inference",
+  "reason": "no license"
+ },
+ {
+  "name": "slide-revive",
+  "repo": "yn01/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "slm-agent",
+  "repo": "scaledown-team/SLM_Agent",
+  "reason": "no license"
+ },
+ {
+  "name": "slop-gate",
+  "repo": "codeninja/slop-gate",
+  "reason": "no license"
+ },
+ {
+  "name": "smarthealthconnect",
+  "repo": "aks129/SmartHealthConnect",
+  "reason": "archived"
+ },
+ {
+  "name": "smartlink-basics",
+  "repo": "smartlink-basics/claude-cowork-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "smb-cybersecurity-policy-kit",
+  "repo": "DonteWong/claude-plugins-official",
+  "reason": "no license"
+ },
+ {
+  "name": "smb-hr-compliance-pack",
+  "repo": "DonteWong/claude-plugins-official",
+  "reason": "no license"
+ },
+ {
+  "name": "social-automation",
+  "repo": "arturseo-geo/cowork-social-automation",
+  "reason": "no license"
+ },
+ {
+  "name": "social-signal-scanner",
+  "repo": "kingmadellc/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "sofia",
+  "repo": "srbentostk/smart-content-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "softlight",
+  "repo": "orianna-ai/claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "solidity-lsp",
+  "repo": "Alexlexer/solidity-lsp",
+  "reason": "no license"
+ },
+ {
+  "name": "somewhere",
+  "repo": "Somewhere-Tech/claude-code-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "sonarqube",
+  "repo": "SonarSource/sonarqube-agent-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "soulz",
+  "repo": "Soulz-io/plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "sourcegraph",
+  "repo": "sourcegraph-community/sourcegraph-claudecode-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "speak-ai",
+  "repo": "speakai/speakai-mcp",
+  "reason": "no license"
+ },
+ {
+  "name": "speakai",
+  "repo": "speakai/speakai-mcp",
+  "reason": "no license"
+ },
+ {
+  "name": "spec-ark",
+  "repo": "maxgda/spec-ark",
+  "reason": "no license"
+ },
+ {
+  "name": "spec-engine",
+  "repo": "farshidghyasi/spec-engine",
+  "reason": "no license"
+ },
+ {
+  "name": "specforge",
+  "repo": "ferrarimarlon/specforge",
+  "reason": "no license"
+ },
+ {
+  "name": "spiceai-skills",
+  "repo": "spiceai/skills",
+  "reason": "no license"
+ },
+ {
+  "name": "spm",
+  "repo": "skillpkg/claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "spoki",
+  "repo": "Spoki-App/spoki-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "sports-edge-estimator",
+  "repo": "kingmadellc/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "spotify-ads-api",
+  "repo": "spotify/ads-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "staff-engineer-mode",
+  "repo": "sirmarkz/staff-engineer-mode",
+  "reason": "no license"
+ },
+ {
+  "name": "standup-logger",
+  "repo": "mohitgoel188/standup-logger",
+  "reason": "no license"
+ },
+ {
+  "name": "stash",
+  "repo": "mrusert/agent-stash-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "statutory-reporting-plugin",
+  "repo": "jupitexai/statutory-reporting-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "story",
+  "repo": "AmirShayegh/ClaudeStory",
+  "reason": "no license"
+ },
+ {
+  "name": "strands-sdk",
+  "repo": "sagarr-shellkode/strands-sdk",
+  "reason": "no license"
+ },
+ {
+  "name": "striderlabs-doordash",
+  "repo": "markswendsen-code/mcp-doordash",
+  "reason": "no license"
+ },
+ {
+  "name": "striderlabs-instacart",
+  "repo": "markswendsen-code/mcp-instacart",
+  "reason": "no license"
+ },
+ {
+  "name": "striderlabs-opentable",
+  "repo": "markswendsen-code/mcp-opentable",
+  "reason": "no license"
+ },
+ {
+  "name": "subconscious",
+  "repo": "MartelGPT10/subconscious",
+  "reason": "no license"
+ },
+ {
+  "name": "substrate",
+  "repo": "PKaldone/substrate-mcp-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "subtext",
+  "repo": "fullstorydev/subtext",
+  "reason": "no license"
+ },
+ {
+  "name": "superdevflow",
+  "repo": "ykdojo/superdevflow",
+  "reason": "no license"
+ },
+ {
+  "name": "supertool",
+  "repo": "Digital-Process-Tools/claude-supertool",
+  "reason": "no license"
+ },
+ {
+  "name": "synaptic",
+  "repo": "HYPERLYNQ/synaptic",
+  "reason": "no license"
+ },
+ {
+  "name": "sync-docs",
+  "repo": "agent-sh/sync-docs",
+  "reason": "no license"
+ },
+ {
+  "name": "talk-about-us",
+  "repo": "oalders/talk-about-us",
+  "reason": "untouched for 180 days"
+ },
+ {
+  "name": "tap",
+  "repo": "HUA-Labs/tap",
+  "reason": "no license"
+ },
+ {
+  "name": "tdd-evolutionary-loop",
+  "repo": "mblando9988/tdd-evolutionary-loop",
+  "reason": "no license"
+ },
+ {
+  "name": "techknowmad-ai-skills",
+  "repo": "TECHKNOWMAD-LABS/techknowmad-ai-skills",
+  "reason": "archived"
+ },
+ {
+  "name": "telegram",
+  "repo": "mjavadalavi/claude-plugins-official",
+  "reason": "no license"
+ },
+ {
+  "name": "tenderb",
+  "repo": "LemonBuzzer123/tenderb_claude_plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "tenderb-claude",
+  "repo": "LemonBuzzer123/tenderb_claude_plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "tenders",
+  "repo": "lexsocket/tenders",
+  "reason": "no license"
+ },
+ {
+  "name": "testmesh",
+  "repo": "test-mesh/testmesh",
+  "reason": "no license"
+ },
+ {
+  "name": "the-design-library",
+  "repo": "zeta92/design-library-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "the-safety-net",
+  "repo": "rjspence3/claude-hooks",
+  "reason": "no license"
+ },
+ {
+  "name": "thesis-polish",
+  "repo": "SAKEH0017/claude-plugins-official",
+  "reason": "no license"
+ },
+ {
+  "name": "thinkfu",
+  "repo": "move38studios/thinkfu",
+  "reason": "no license"
+ },
+ {
+  "name": "ticket-plugin",
+  "repo": "iansmith/ticket-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "tidy",
+  "repo": "currenjin/tidy-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "tigerpass",
+  "repo": "TigerPassNet/tigerpass-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "timeout",
+  "repo": "almandsky/timeout",
+  "reason": "no license"
+ },
+ {
+  "name": "tinman-heartbeat-for-claude-code",
+  "repo": "andyuninvited/tinman_for_claudecode",
+  "reason": "no license"
+ },
+ {
+  "name": "tk",
+  "repo": "helderberto/tracerkit",
+  "reason": "archived"
+ },
+ {
+  "name": "tldiagram-create-diagram",
+  "repo": "Mertcikla/tld-cli",
+  "reason": "archived"
+ },
+ {
+  "name": "tmux-cc-state",
+  "repo": "ocherry341/tmux-cc-state",
+  "reason": "no license"
+ },
+ {
+  "name": "tmux-status",
+  "repo": "haxybaxy/claude-tmux-status",
+  "reason": "no license"
+ },
+ {
+  "name": "toggl",
+  "repo": "run-as-root/toggl-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "tokensafe",
+  "repo": "ampactor-labs/tokensafe",
+  "reason": "no license"
+ },
+ {
+  "name": "trackian-mcp-server",
+  "repo": "trackian/claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "tradememory",
+  "repo": "mnemox-ai/tradememory-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "translate-epub",
+  "repo": "aiocean/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "trinity",
+  "repo": "yjn279/trinity",
+  "reason": "no license"
+ },
+ {
+  "name": "trip1",
+  "repo": "trivial-corp/agents",
+  "reason": "no license"
+ },
+ {
+  "name": "turtini",
+  "repo": "Turtini/claude-code-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "twitter-command-center",
+  "repo": "aisa-one/twitter-command-center",
+  "reason": "no license"
+ },
+ {
+  "name": "ty-python-lsp",
+  "repo": "andres-ortizl/ty-lsp-claude-code-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "typedeck",
+  "repo": "testifyprep/typedeck-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "uk-finance-accounting",
+  "repo": "mlobo2012/UK-SMB-Finance-Accounting-Plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "universal-design-principles",
+  "repo": "HDeibler/universal-design-principles",
+  "reason": "no license"
+ },
+ {
+  "name": "unofficial-tailscale-skills",
+  "repo": "sgoley/unofficial-tailscale-skills",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "upfront",
+  "repo": "ThinkUpfront/Upfront",
+  "reason": "no license"
+ },
+ {
+  "name": "usectl",
+  "repo": "syst3mctl/usectl-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "vanikya-ai-mcp",
+  "repo": "vanikya/vanikya-ai-mcp",
+  "reason": "no license"
+ },
+ {
+  "name": "velt",
+  "repo": "velt-js/velt-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "verifiedx",
+  "repo": "bigkan8/verifiedx-agent-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "versori-skills",
+  "repo": "versori/cli",
+  "reason": "no license"
+ },
+ {
+  "name": "vibe-coding",
+  "repo": "jordanbeardedmgmt/vibe-coding-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "vibe-prospecting",
+  "repo": "explorium-ai/vibeprospecting-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "vibe-radar",
+  "repo": "LeifDiao/vibe-radar",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "vibe-taker",
+  "repo": "estevanhernandez-stack-ed/vibe-taker",
+  "reason": "no license"
+ },
+ {
+  "name": "vibe-test",
+  "repo": "estevanhernandez-stack-ed/vibe-test",
+  "reason": "no license"
+ },
+ {
+  "name": "vibelearn",
+  "repo": "anergcorp/vibelearn",
+  "reason": "no license"
+ },
+ {
+  "name": "video-library-classifier",
+  "repo": "felixrivasuxdesigner/video-library-classifier",
+  "reason": "no license"
+ },
+ {
+  "name": "viv",
+  "repo": "siftystudio/viv",
+  "reason": "no license"
+ },
+ {
+  "name": "voltaire",
+  "repo": "voltairehq/voltaire-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "vps-ops",
+  "repo": "arturseo-geo/cowork-vps-ops",
+  "reason": "no license"
+ },
+ {
+  "name": "vulca",
+  "repo": "vulca-org/vulca-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "vynn",
+  "repo": "beee003/vynn-mcp",
+  "reason": "no license"
+ },
+ {
+  "name": "wasp",
+  "repo": "wasp-lang/claude-plugins",
+  "reason": "no license"
+ },
+ {
+  "name": "wave-planner",
+  "repo": "wrsmith108/wave-planner-claude-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "wave-planner-skill",
+  "repo": "wrsmith108/wave-planner-claude-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "waves-exovian",
+  "repo": "exovian-developments/waves-cowork-plugin",
+  "reason": "archived"
+ },
+ {
+  "name": "wayfinder-connector",
+  "repo": "frametric/wayfinder-connector",
+  "reason": "no license"
+ },
+ {
+  "name": "web-ctl",
+  "repo": "agent-sh/web-ctl",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "webscan",
+  "repo": "enderphan94/web_scan",
+  "reason": "no license"
+ },
+ {
+  "name": "webscanner",
+  "repo": "enderphan94/web_scan",
+  "reason": "no license"
+ },
+ {
+  "name": "wecom",
+  "repo": "yangsjt/claude-channel-wecom",
+  "reason": "no license"
+ },
+ {
+  "name": "weegloo",
+  "repo": "weeglooapi/weegloo-mcp-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "whatsapp-channel",
+  "repo": "mgiovani/claude-whatsapp-channel",
+  "reason": "no license"
+ },
+ {
+  "name": "windows-desktop-com-plugin-for-mail",
+  "repo": "gabrieldenny-del/outlook-extension",
+  "reason": "no license"
+ },
+ {
+  "name": "wiq",
+  "repo": "getwiq/wiq-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "wmux-orchestrator",
+  "repo": "amirlehmam/wmux-orchestrator",
+  "reason": "no license"
+ },
+ {
+  "name": "wonda",
+  "repo": "degausai/wonda",
+  "reason": "no license"
+ },
+ {
+  "name": "wordpress-playground",
+  "repo": "bgrgicak/wp-playground-ai-plugins",
+  "reason": "archived"
+ },
+ {
+  "name": "wordpress-publisher",
+  "repo": "arturseo-geo/cowork-wordpress-publisher",
+  "reason": "no license"
+ },
+ {
+  "name": "work-unit-roadmap",
+  "repo": "truong170201/work-unit-roadmap",
+  "reason": "no license"
+ },
+ {
+  "name": "wozcode",
+  "repo": "WithWoz/wozcode-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "wrightward",
+  "repo": "Joys-Dawn/toolwright",
+  "reason": "repository unreachable"
+ },
+ {
+  "name": "ws",
+  "repo": "n-filatov/ws",
+  "reason": "no license"
+ },
+ {
+  "name": "xilinx-suite",
+  "repo": "QingquanYao/xilinx-skill",
+  "reason": "no license"
+ },
+ {
+  "name": "zeabur",
+  "repo": "zeabur/zeabur-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "zforge",
+  "repo": "zhengxuyu/zforge",
+  "reason": "no license"
+ },
+ {
+  "name": "quickdesign",
+  "repo": null,
+  "reason": "no repository resolved"
+ },
+ {
+  "name": "testdino",
+  "repo": null,
+  "reason": "no repository resolved"
+ },
+ {
+  "name": "tres-finance-plugin",
+  "repo": null,
+  "reason": "no repository resolved"
+ },
+ {
+  "name": "circleback",
+  "repo": "circlebackai/claude-code-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "databricks",
+  "repo": "databricks/databricks-agent-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "firecrawl",
+  "repo": "firecrawl/firecrawl-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "hostinger",
+  "repo": "hostinger/claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "learn-with-coursera",
+  "repo": "coursera/skills",
+  "reason": "no license"
+ },
+ {
+  "name": "notion",
+  "repo": "makenotion/claude-code-notion-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "semgrep",
+  "repo": "semgrep/mcp-marketplace",
+  "reason": "no license"
+ },
+ {
+  "name": "sonatype-guide",
+  "repo": "sonatype/sonatype-guide-claude-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "supabase",
+  "repo": "supabase-community/supabase-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "vercel",
+  "repo": "vercel/vercel-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "vsql-extension-builder",
+  "repo": "villagesql/villagesql-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "zyte-web-data",
+  "repo": "zytedata/claude-skills",
+  "reason": "no license"
+ },
+ {
+  "name": "newrelic",
+  "repo": "newrelic/claude-code-plugin",
+  "reason": "no license"
+ },
+ {
+  "name": "reco",
+  "repo": "RecoLabs/reco-mcp-plugins",
+  "reason": "no license"
+ }
+]
